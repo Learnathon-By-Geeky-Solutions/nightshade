@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShadowGroundedState : EnemyState
 {
     protected Enemy_Shadow enemy;
+    protected Transform player;
 
     public ShadowGroundedState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Shadow enemy)
         : base(_enemyBase, _stateMachine, _animBoolName)
@@ -15,6 +16,8 @@ public class ShadowGroundedState : EnemyState
     public override void Enter()
     {
         base.Enter();
+
+        player = PlayerManager.instance.player.transform;
     }
 
     public override void Exit()

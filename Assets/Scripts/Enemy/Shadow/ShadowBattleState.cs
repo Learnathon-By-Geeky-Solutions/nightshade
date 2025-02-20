@@ -17,7 +17,7 @@ public class ShadowBattleState : EnemyState
     public override void Enter()
     {
         base.Enter();
-        player = GameObject.Find("Player").transform; // Fixed spelling
+        player = PlayerManager.instance.player.transform;
     }
 
     public override void Update()
