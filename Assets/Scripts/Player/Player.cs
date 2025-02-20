@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Entity
 {
-    [Header("Move Info")]
+
+    
+
+    [Header("Attack details")]
     public Vector2 [] attackMovement;
+    public float counterAttackDuration = .2f;
+
     public bool isBusy { get; private set; }
 
     [Header("Move Info")]
@@ -19,21 +24,6 @@ public class Player : MonoBehaviour
     public float dashDuration;
     public float dashDir { get; private set; }
 
-    [Header("Collision info")]
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private float groundCheckDistance;
-    [SerializeField] private Transform wallCheck;
-    [SerializeField] private float wallCheckDistance;
-    [SerializeField] private LayerMask whatIsGround;
-
-    public int facingDir { get; private set; } = 1;
-    private bool facingRight = true;
-
-    #region Components
-    public Animator anim { get; private set; }
-    public Rigidbody2D rb { get; private set; }
-    #endregion
-
     #region States
     public PlayerStateMachine stateMachine { get; private set; }
     public PlayerIdleState idleState { get; private set; }
@@ -45,10 +35,14 @@ public class Player : MonoBehaviour
     public PlayerWallJumpState wallJump { get; private set; }
 
     public PlayerPrimaryAttack primaryAttack { get; private set; }
+
+    public PlayerCounterAttackState counterAttack { get; private set; }
+
     #endregion
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         stateMachine = new PlayerStateMachine();
 
         idleState = new PlayerIdleState(this, stateMachine, "Idle");
@@ -60,18 +54,12 @@ public class Player : MonoBehaviour
         wallJump = new PlayerWallJumpState(this, stateMachine, "Jump");
 
         primaryAttack = new PlayerPrimaryAttack(this, stateMachine, "Attack");
+        counterAttack = new PlayerCounterAttackState(this, stateMachine, "CounterAttack");
     }
 
-    private void Start()
+    protected override void Start()
     {
-        anim = GetComponentInChildren<Animator>();
-        rb = GetComponent<Rigidbody2D>();
-
-        if (anim == null)
-            Debug.LogError("Animator component not found!");
-        if (rb == null)
-            Debug.LogError("Rigidbody2D component not found!");
-
+        base.Start();
         stateMachine.Initialize(idleState);
     }
 
@@ -84,8 +72,9 @@ public class Player : MonoBehaviour
 
     public void AnimationTrigger() => stateMachine.currentState.AnimationFinishTrigger();
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         stateMachine.currentState.Update();
         CheckForDashInput();
         Debug.Log("Wall Detected: " + IsWallDetected());
@@ -110,52 +99,4 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void ZeroVelocity()
-    {
-        rb.velocity = new Vector2(0,0);
-    }
-
-    public void SetVelocity(float _xVelocity, float _yVelocity)
-    {
-        rb.velocity = new Vector2(_xVelocity, _yVelocity);
-        FlipController(_xVelocity);
-    }
-
-    public bool IsGroundDetected()
-    {
-        bool isGrounded = Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
-        Debug.Log("Ground Detected: " + isGrounded);
-        return isGrounded;
-    }
-
-    public bool IsWallDetected()
-    {
-        bool isWall = Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround);
-        Debug.Log("Wall Detected: " + isWall);
-        return isWall;
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (groundCheck != null)
-            Gizmos.DrawLine(groundCheck.position, new Vector3(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
-
-        if (wallCheck != null)
-            Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y));
-    }
-
-    public void Flip()
-    {
-        facingDir *= -1;
-        facingRight = !facingRight;
-        transform.Rotate(0, 180, 0);
-    }
-
-    public void FlipController(float _x)
-    {
-        if (_x > 0 && !facingRight)
-            Flip();
-        else if (_x < 0 && facingRight)
-            Flip();
-    }
 }

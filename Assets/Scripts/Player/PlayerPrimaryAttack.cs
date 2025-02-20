@@ -17,7 +17,8 @@ public class PlayerPrimaryAttack : PlayerState
     public override void Enter()
     {
         base.Enter();
-        if(comboCounter > 1 || Time.time >= lastTimeAttacked + comboWindow)
+        xInput = 0;
+        if (comboCounter > 1 || Time.time >= lastTimeAttacked + comboWindow)
             comboCounter = 0;
 
         player.anim.SetInteger("ComboCounter", comboCounter);
