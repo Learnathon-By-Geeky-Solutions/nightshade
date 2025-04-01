@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Accessibility;
 
 public class Entity : MonoBehaviour
 {
@@ -9,8 +10,9 @@ public class Entity : MonoBehaviour
     public Animator anim { get; private set; }
     public Rigidbody2D rb { get; private set; }
     public EntityFX fx { get; private set; }
-
+    public SpriteRenderer sr { get; private set; }
     #endregion
+
     [Header("Knockback info")]
     [SerializeField] protected Vector2 knockbackDirection;
     [SerializeField] protected float knockbackDuration;
@@ -20,10 +22,10 @@ public class Entity : MonoBehaviour
     public Transform attackCheck;
     public float attackCheckRadius;
     [SerializeField] protected Transform groundCheck;
-    [SerializeField] protected  float groundCheckDistance;
-    [SerializeField] protected  Transform wallCheck;
-    [SerializeField] protected  float wallCheckDistance;
-    [SerializeField] protected  LayerMask whatIsGround;
+    [SerializeField] protected float groundCheckDistance;
+    [SerializeField] protected Transform wallCheck;
+    [SerializeField] protected float wallCheckDistance;
+    [SerializeField] protected LayerMask whatIsGround;
 
     public int facingDir { get; private set; } = 1;
     protected bool facingRight = true;
@@ -35,15 +37,15 @@ public class Entity : MonoBehaviour
 
     protected virtual void Start()
     {
-        fx = GetComponentInChildren<EntityFX>();
+        sr = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
-
+        fx = GetComponent<EntityFX>();
     }
 
     protected virtual void Update()
     {
-        
+
     }
 
     public virtual void Damage()
@@ -51,8 +53,9 @@ public class Entity : MonoBehaviour
         fx.StartCoroutine("FlashFX");
         StartCoroutine("HitKnockback");
 
-        Debug.Log(gameObject.name + "  was damaged!");
+        //Debug.Log(gameObject.name + "  was damaged!");
     }
+
     protected virtual IEnumerator HitKnockback()
     {
         isKnocked = true;
@@ -62,46 +65,40 @@ public class Entity : MonoBehaviour
         yield return new WaitForSeconds(knockbackDuration);
         isKnocked = false;
     }
-    public void ZeroVelocity()
+
+    #region Velocity
+    public void SetZeroVelocity()
     {
         if (isKnocked)
             return;
 
         rb.velocity = new Vector2(0, 0);
     }
+
     public void SetVelocity(float _xVelocity, float _yVelocity)
     {
+        if (isKnocked)
+            return;
+
         rb.velocity = new Vector2(_xVelocity, _yVelocity);
         FlipController(_xVelocity);
     }
-
-    public virtual bool IsGroundDetected()
-    {
-        bool isGrounded = Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
-        Debug.Log("Ground Detected: " + isGrounded);
-        return isGrounded;
-    }
-
-    public virtual bool IsWallDetected()
-    {
-        bool isWall = Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround);
-        Debug.Log("Wall Detected: " + isWall);
-        return isWall;
-    }
+    #endregion
+    #region Collision
+    public virtual bool IsGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
+    public virtual bool IsWallDetected() => Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround);
 
     protected virtual void OnDrawGizmos()
     {
-        if (groundCheck != null)
-            Gizmos.DrawLine(groundCheck.position, new Vector3(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
-
-        if (wallCheck != null)
-            Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y));
+        Gizmos.DrawLine(groundCheck.position, new Vector3(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
+        Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y));
         Gizmos.DrawWireSphere(attackCheck.position, attackCheckRadius);
     }
-
-     public virtual void Flip()
+    #endregion
+    #region Flip
+    public virtual void Flip()
     {
-        facingDir *= -1;
+        facingDir = facingDir * -1;
         facingRight = !facingRight;
         transform.Rotate(0, 180, 0);
     }
@@ -112,5 +109,14 @@ public class Entity : MonoBehaviour
             Flip();
         else if (_x < 0 && facingRight)
             Flip();
+    }
+    #endregion
+
+    public void MakeTransprent(bool _transprent)
+    {
+        if (_transprent)
+            sr.color = Color.clear;
+        else
+            sr.color = Color.white;
     }
 }

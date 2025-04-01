@@ -11,7 +11,6 @@ public class ShadowAttackState : EnemyState
     {
         this.enemy = enemy;
     }
-
     public override void Enter()
     {
         base.Enter();
@@ -28,9 +27,10 @@ public class ShadowAttackState : EnemyState
     {
         base.Update();
 
-        enemy.ZeroVelocity();
+        enemy.SetZeroVelocity();
 
-        if(triggerCalled)
+        if (triggerCalled)
             stateMachine.ChangeState(enemy.battleState);
     }
 }
+
