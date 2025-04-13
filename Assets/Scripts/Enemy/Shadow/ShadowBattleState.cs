@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace Enemy
+namespace Enemy.Shadow
 {
     public class ShadowBattleState : EnemyState
     {
@@ -9,7 +9,7 @@ namespace Enemy
         private EnemyShadow enemy;
         private int moveDir;
 
-        public ShadowBattleState(Enemys _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemyShadow enemy)
+        public ShadowBattleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemyShadow enemy)
             : base(_enemyBase, _stateMachine, _animBoolName)
         {
             this.enemy = enemy;

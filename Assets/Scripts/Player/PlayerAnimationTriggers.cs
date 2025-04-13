@@ -1,32 +1,35 @@
 using Enemy;
+using Skills;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PlayerAnimationTriggers : MonoBehaviour
+namespace Player
 {
-    private Player player => GetComponentInParent<Player>();
-
-    private void AnimationTrigger()
+    public class PlayerAnimationTriggers : MonoBehaviour
     {
-        player.AnimationTrigger();
-    }
+        private Player player => GetComponentInParent<Player>();
 
-    private void AttackTrigger()
-    {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(player.attackCheck.position, player.attackCheckRadius);
-
-        foreach (var hit in colliders)
+        private void AnimationTrigger()
         {
-            if (hit.GetComponent<Enemys>() != null)
-                hit.GetComponent<Enemys>().Damage();
-
-            //hit.GetComponent<Enemy>()?.Damage();
+            player.AnimationTrigger();
         }
-    }
 
-    private void ThrowSword()
-    {
-        SkillManager.instance.sword.CreateSword();
+        private void AttackTrigger()
+        {
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(player.attackCheck.position, player.attackCheckRadius);
+
+            foreach (var hit in colliders)
+            {
+                if (hit.GetComponent<Enemy.Enemy>() != null)
+                    hit.GetComponent<Enemy.Enemy>().Damage();
+
+                //hit.GetComponent<Enemy>()?.Damage();
+            }
+        }
+
+        private void ThrowSword()
+        {
+            SkillManager.instance.sword.CreateSword();
+        }
     }
 }

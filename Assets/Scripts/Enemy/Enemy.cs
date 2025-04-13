@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Enemy
 {
-    public class Enemys : Entity
+    public class Enemy : Entity
     {
         [SerializeField] protected LayerMask whatIsPlayer;
 
@@ -26,12 +26,12 @@ namespace Enemy
         [HideInInspector] public float lastTimeAttacked;
 
 
-        public Enemy.EnemyStateMachine stateMachine { get; private set; }
+        public EnemyStateMachine stateMachine { get; private set; }
 
         protected override void Awake()
         {
             base.Awake();
-            stateMachine = new Enemy.EnemyStateMachine();
+            stateMachine = new EnemyStateMachine();
 
             defaultMoveSpeed = moveSpeed;
         }

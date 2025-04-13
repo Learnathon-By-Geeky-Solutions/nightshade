@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DashSkill : Skill
+namespace Skills
 {
-
-    public override void UseSkill()
+    public class DashSkill : Skill
     {
-        base.UseSkill();
+
+        public override void UseSkill()
+        {
+            base.UseSkill();
+        }
     }
 }

@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace Enemy
+namespace Enemy.Shadow
 {
     public class ShadowMoveState : ShadowGroundedState
     {
-        public ShadowMoveState(Enemys _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemyShadow enemy)
+        public ShadowMoveState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemyShadow enemy)
             : base(_enemyBase, _stateMachine, _animBoolName, enemy)
         {
         }

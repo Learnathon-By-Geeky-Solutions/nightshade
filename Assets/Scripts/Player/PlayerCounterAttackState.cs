@@ -1,57 +1,61 @@
 using Enemy;
 using UnityEngine;
 
-public class PlayerCounterAttackState : PlayerState
+
+namespace Player
 {
-    private bool canCreateClone;
-
-    public PlayerCounterAttackState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
+    public class PlayerCounterAttackState : PlayerState
     {
-    }
+        private bool canCreateClone;
 
-    public override void Enter()
-    {
-        base.Enter();
-
-        canCreateClone = true;
-        stateTimer = player.counterAttackDuration;
-        player.anim.SetBool("SuccessfulCounterAttack", false);
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-
-
-    }
-
-    public override void Update()
-    {
-        base.Update();
-
-        player.SetZeroVelocity();
-
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(player.attackCheck.position, player.attackCheckRadius);
-
-        foreach (var hit in colliders)
+        public PlayerCounterAttackState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
         {
-            if (hit.GetComponent<Enemys>() != null)
-            {
-                if (hit.GetComponent<Enemys>().CanBeStunned())
-                {
-                    stateTimer = 10; // any value bigger than 1
-                    player.anim.SetBool("SuccessfulCounterAttack", true);
+        }
 
-                    if (canCreateClone)
+        public override void Enter()
+        {
+            base.Enter();
+
+            canCreateClone = true;
+            stateTimer = player.counterAttackDuration;
+            player.anim.SetBool("SuccessfulCounterAttack", false);
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
+
+
+        }
+
+        public override void Update()
+        {
+            base.Update();
+
+            player.SetZeroVelocity();
+
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(player.attackCheck.position, player.attackCheckRadius);
+
+            foreach (var hit in colliders)
+            {
+                if (hit.GetComponent<Enemy.Enemy>() != null)
+                {
+                    if (hit.GetComponent<Enemy.Enemy>().CanBeStunned())
                     {
-                        canCreateClone = false;
-                        player.skill.clone.CreateCloneOnCounterAttack(hit.transform);
+                        stateTimer = 10; // any value bigger than 1
+                        player.anim.SetBool("SuccessfulCounterAttack", true);
+
+                        if (canCreateClone)
+                        {
+                            canCreateClone = false;
+                            player.skill.clone.CreateCloneOnCounterAttack(hit.transform);
+                        }
                     }
                 }
             }
-        }
 
-        if (stateTimer < 0 || triggerCalled)
-            stateMachine.ChangeState(player.idleState);
+            if (stateTimer < 0 || triggerCalled)
+                stateMachine.ChangeState(player.idleState);
+        }
     }
 }

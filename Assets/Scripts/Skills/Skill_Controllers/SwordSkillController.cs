@@ -1,265 +1,251 @@
-using Enemy;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.ExceptionServices;
-using TMPro.EditorUtilities;
 using UnityEngine;
+using Enemy; 
+using Player; 
 
-public class SwordSkillController : MonoBehaviour
+namespace SkillControllers
 {
-    private Animator anim;
-    private Rigidbody2D rb;
-    private CircleCollider2D cd;
-    private Player player;
-
-    private bool canRotate = true;
-    private bool isReturning;
-
-
-    private float freezeTimeDuration;
-    private float returnSpeed = 12;
-
-    [Header("Pierce info")]
-    private float pierceAmount;
-
-    [Header("Bounce info")]
-    private float bounceSpeed;
-    private bool isBouncing;
-    private int bounceAmount;
-    private List<Transform> enemyTarget;
-    private int targetIndex;
-
-    [Header("Spin info")]
-    private float maxTravelDistance;
-    private float spinDuration;
-    private float spinTimer;
-    private bool wasStopped;
-    private bool isSpinning;
-
-    private float hitTimer;
-    private float hitCooldown;
-
-
-
-    private void Awake()
+    public class SwordSkillController : MonoBehaviour
     {
-        anim = GetComponentInChildren<Animator>();
-        rb = GetComponent<Rigidbody2D>();
-        cd = GetComponent<CircleCollider2D>();
-    }
+        private Animator anim;
+        private Rigidbody2D rb;
+        private CircleCollider2D cd;
+        private Player.Player player;  
 
-    private void DestroyMe()
-    {
-        Destroy(gameObject);
-    }
+        private bool canRotate = true;
+        private bool isReturning;
 
-    public void SetupSword(Vector2 _dir, float _gravityScale, Player _player, float _freezeTimeDuration, float _returnSpeed)
-    {
-        player = _player;
-        freezeTimeDuration = _freezeTimeDuration;
-        returnSpeed = _returnSpeed;
+        private float freezeTimeDuration;
+        private float returnSpeed = 12;
 
-        rb.velocity = _dir;
-        rb.gravityScale = _gravityScale;
+        [Header("Pierce info")]
+        private float pierceAmount;
 
-        if (pierceAmount <= 0)
-            anim.SetBool("Rotation", true);
+        [Header("Bounce info")]
+        private float bounceSpeed;
+        private bool isBouncing;
+        private int bounceAmount;
+        private List<Transform> enemyTarget;
+        private int targetIndex;
 
+        [Header("Spin info")]
+        private float maxTravelDistance;
+        private float spinDuration;
+        private float spinTimer;
+        private bool wasStopped;
+        private bool isSpinning;
 
-        Invoke("DestroyMe", 7);
-    }
+        private float hitTimer;
+        private float hitCooldown;
 
-    public void SetupBounce(bool _isBouncing, int _amountOfBounces, float _bounceSpeed)
-    {
-        isBouncing = _isBouncing;
-        bounceAmount = _amountOfBounces;
-        bounceSpeed = _bounceSpeed;
-
-
-        enemyTarget = new List<Transform>();
-    }
-
-    public void SetupPierce(int _pierceAmount)
-    {
-        pierceAmount = _pierceAmount;
-    }
-
-    public void SetupSpin(bool _isSpinning, float _maxTravelDistance, float _spinDuration, float _hitCooldown)
-    {
-        isSpinning = _isSpinning;
-        maxTravelDistance = _maxTravelDistance;
-        spinDuration = _spinDuration;
-        hitCooldown = _hitCooldown;
-    }
-
-    public void ReturnSword()
-    {
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        //rb.isKinematic = false;
-        transform.parent = null;
-        isReturning = true;
-    }
-
-    private void Update()
-    {
-        if (canRotate)
-            transform.right = rb.velocity;
-
-
-        if (isReturning)
+        private void Awake()
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, returnSpeed * Time.deltaTime);
-
-            if (Vector2.Distance(transform.position, player.transform.position) < 1)
-                player.CatchTheSword();
+            anim = GetComponentInChildren<Animator>();
+            rb = GetComponent<Rigidbody2D>();
+            cd = GetComponent<CircleCollider2D>();
         }
 
-        BounceLogic();
-        SpinLogic();
-    }
-
-    private void SpinLogic()
-    {
-        if (isSpinning)
+        private void DestroyMe()
         {
-            if (Vector2.Distance(player.transform.position, transform.position) > maxTravelDistance && !wasStopped)
+            Destroy(gameObject);
+        }
+
+        public void SetupSword(Vector2 _dir, float _gravityScale, Player.Player _player, float _freezeTimeDuration, float _returnSpeed)
+        {
+            player = _player;
+            freezeTimeDuration = _freezeTimeDuration;
+            returnSpeed = _returnSpeed;
+
+            rb.velocity = _dir;
+            rb.gravityScale = _gravityScale;
+
+            if (pierceAmount <= 0)
+                anim.SetBool("Rotation", true);
+
+            Invoke("DestroyMe", 7);
+        }
+
+        public void SetupBounce(bool _isBouncing, int _amountOfBounces, float _bounceSpeed)
+        {
+            isBouncing = _isBouncing;
+            bounceAmount = _amountOfBounces;
+            bounceSpeed = _bounceSpeed;
+
+            enemyTarget = new List<Transform>();
+        }
+
+        public void SetupPierce(int _pierceAmount)
+        {
+            pierceAmount = _pierceAmount;
+        }
+
+        public void SetupSpin(bool _isSpinning, float _maxTravelDistance, float _spinDuration, float _hitCooldown)
+        {
+            isSpinning = _isSpinning;
+            maxTravelDistance = _maxTravelDistance;
+            spinDuration = _spinDuration;
+            hitCooldown = _hitCooldown;
+        }
+
+        public void ReturnSword()
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            transform.parent = null;
+            isReturning = true;
+        }
+
+        private void Update()
+        {
+            if (canRotate)
+                transform.right = rb.velocity;
+
+            if (isReturning)
             {
-                StopWhenSpinning();
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, returnSpeed * Time.deltaTime);
+
+                if (Vector2.Distance(transform.position, player.transform.position) < 1)
+                    player.CatchTheSword();
             }
 
-            if (wasStopped)
+            BounceLogic();
+            SpinLogic();
+        }
+
+        private void SpinLogic()
+        {
+            if (isSpinning)
             {
-                spinTimer -= Time.deltaTime;
-
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x + 1, transform.position.y), 2.4f * Time.deltaTime);
-
-                if (spinTimer < 0)
+                if (Vector2.Distance(player.transform.position, transform.position) > maxTravelDistance && !wasStopped)
                 {
-                    isReturning = true;
-                    isSpinning = false;
+                    StopWhenSpinning();
                 }
 
-
-                hitTimer -= Time.deltaTime;
-
-                if (hitTimer < 0)
+                if (wasStopped)
                 {
-                    hitTimer = hitCooldown;
+                    spinTimer -= Time.deltaTime;
 
-                    Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 1);
+                    transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x + 1, transform.position.y), 2.4f * Time.deltaTime);
 
-                    foreach (var hit in colliders)
+                    if (spinTimer < 0)
                     {
-                        if (hit.GetComponent<Enemys>() != null)
-                            SwordSkillDamage(hit.GetComponent<Enemys>());
+                        isReturning = true;
+                        isSpinning = false;
+                    }
+
+                    hitTimer -= Time.deltaTime;
+
+                    if (hitTimer < 0)
+                    {
+                        hitTimer = hitCooldown;
+
+                        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 1);
+
+                        foreach (var hit in colliders)
+                        {
+                            if (hit.GetComponent<Enemy.Enemy>() != null)  // Corrected to reference the Enemy class
+                                SwordSkillDamage(hit.GetComponent<Enemy.Enemy>());
+                        }
                     }
                 }
             }
         }
-    }
 
-    private void StopWhenSpinning()
-    {
-        wasStopped = true;
-        rb.constraints = RigidbodyConstraints2D.FreezePosition;
-        spinTimer = spinDuration;
-    }
-
-    private void BounceLogic()
-    {
-        if (isBouncing && enemyTarget.Count > 0)
+        private void StopWhenSpinning()
         {
-
-
-            transform.position = Vector2.MoveTowards(transform.position, enemyTarget[targetIndex].position, bounceSpeed * Time.deltaTime);
-
-            if (Vector2.Distance(transform.position, enemyTarget[targetIndex].position) < .1f)
-            {
-
-                SwordSkillDamage(enemyTarget[targetIndex].GetComponent<Enemys>());
-
-                targetIndex++;
-                bounceAmount--;
-
-                if (bounceAmount <= 0)
-                {
-                    isBouncing = false;
-                    isReturning = true;
-                }
-
-                if (targetIndex >= enemyTarget.Count)
-                    targetIndex = 0;
-            }
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (isReturning)
-            return;
-
-
-        if (collision.GetComponent<Enemys>() != null)
-        {
-            Enemys enemy = collision.GetComponent<Enemys>();
-            SwordSkillDamage(enemy);
+            wasStopped = true;
+            rb.constraints = RigidbodyConstraints2D.FreezePosition;
+            spinTimer = spinDuration;
         }
 
-
-        SetupTargetsForBounce(collision);
-
-        StuckInto(collision);
-    }
-
-    private void SwordSkillDamage(Enemys enemy)
-    {
-        enemy.Damage();
-        enemy.StartCoroutine("FreezeTimerFor", freezeTimeDuration);
-    }
-
-    private void SetupTargetsForBounce(Collider2D collision)
-    {
-        if (collision.GetComponent<Enemys>() != null)
+        private void BounceLogic()
         {
-            if (isBouncing && enemyTarget.Count <= 0)
+            if (isBouncing && enemyTarget.Count > 0)
             {
-                Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 10);
+                transform.position = Vector2.MoveTowards(transform.position, enemyTarget[targetIndex].position, bounceSpeed * Time.deltaTime);
 
-                foreach (var hit in colliders)
+                if (Vector2.Distance(transform.position, enemyTarget[targetIndex].position) < .1f)
                 {
-                    if (hit.GetComponent<Enemys>() != null)
-                        enemyTarget.Add(hit.transform);
+                    SwordSkillDamage(enemyTarget[targetIndex].GetComponent<Enemy.Enemy>());
+
+                    targetIndex++;
+                    bounceAmount--;
+
+                    if (bounceAmount <= 0)
+                    {
+                        isBouncing = false;
+                        isReturning = true;
+                    }
+
+                    if (targetIndex >= enemyTarget.Count)
+                        targetIndex = 0;
                 }
             }
         }
-    }
 
-    private void StuckInto(Collider2D collision)
-    {
-        if (pierceAmount > 0 && collision.GetComponent<Enemys>() != null)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            pierceAmount--;
-            return;
+            if (isReturning)
+                return;
+
+            if (collision.GetComponent<Enemy.Enemy>() != null)  // Corrected to reference the Enemy class
+            {
+                Enemy.Enemy enemy = collision.GetComponent<Enemy.Enemy>();
+                SwordSkillDamage(enemy);
+            }
+
+            SetupTargetsForBounce(collision);
+            StuckInto(collision);
         }
 
-        if (isSpinning)
+        private void SwordSkillDamage(Enemy.Enemy enemy)  // Corrected to reference the Enemy class
         {
-            StopWhenSpinning();
-            return;
+            enemy.Damage();
+            enemy.StartCoroutine("FreezeTimerFor", freezeTimeDuration);
         }
 
+        private void SetupTargetsForBounce(Collider2D collision)
+        {
+            if (collision.GetComponent<Enemy.Enemy>() != null)
+            {
+                if (isBouncing && enemyTarget.Count <= 0)
+                {
+                    Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 10);
 
-        canRotate = false;
-        cd.enabled = false;
+                    foreach (var hit in colliders)
+                    {
+                        if (hit.GetComponent<Enemy.Enemy>() != null)
+                            enemyTarget.Add(hit.transform);
+                    }
+                }
+            }
+        }
 
-        rb.isKinematic = true;
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        private void StuckInto(Collider2D collision)
+        {
+            if (pierceAmount > 0 && collision.GetComponent<Enemy.Enemy>() != null)  // Corrected to reference the Enemy class
+            {
+                pierceAmount--;
+                return;
+            }
 
-        if (isBouncing && enemyTarget.Count > 0)
-            return;
+            if (isSpinning)
+            {
+                StopWhenSpinning();
+                return;
+            }
 
+            canRotate = false;
+            cd.enabled = false;
 
-        anim.SetBool("Rotation", false);
-        transform.parent = collision.transform;
+            rb.isKinematic = true;
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
+            if (isBouncing && enemyTarget.Count > 0)
+                return;
+
+            anim.SetBool("Rotation", false);
+            transform.parent = collision.transform;
+        }
     }
 }

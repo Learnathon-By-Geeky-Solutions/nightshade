@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace Enemy
+namespace Enemy.Shadow
 {
-    public class EnemyShadow : Enemys
+    public class EnemyShadow : Enemy
     {
         #region States
         public ShadowIdleState idleState { get; private set; }

@@ -8,7 +8,7 @@ namespace Enemy
     {
 
         protected EnemyStateMachine stateMachine;
-        protected Enemys enemyBase;
+        protected Enemy enemyBase;
         protected Rigidbody2D rb;
 
         private string animBoolName;
@@ -16,7 +16,7 @@ namespace Enemy
         protected float stateTimer;
         protected bool triggerCalled;
 
-        public EnemyState(Enemys _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName)
+        public EnemyState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName)
         {
             this.enemyBase = _enemyBase;
             this.stateMachine = _stateMachine;

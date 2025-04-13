@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace Enemy
+
+namespace Enemy.Shadow
 {
     public class EnemyShadowAnimationTriggers : MonoBehaviour
     {
@@ -20,8 +21,8 @@ namespace Enemy
 
             foreach (var hit in colliders)
             {
-                if (hit.GetComponent<Player>() != null)
-                    hit.GetComponent<Player>().Damage();
+                if (hit.GetComponent<Player.Player>() != null)
+                    hit.GetComponent<Player.Player>().Damage();
             }
         }
 
