@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShadowIdleState : ShadowGroundedState
 {
-    public ShadowIdleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Shadow enemy) 
+    public ShadowIdleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemyShadow enemy) 
         : base(_enemyBase, _stateMachine, _animBoolName, enemy)
     {
     }

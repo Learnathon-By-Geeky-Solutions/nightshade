@@ -5,10 +5,10 @@ using UnityEngine;
 public class ShadowBattleState : EnemyState
 {
     private Transform player; // Fixed spelling
-    private Enemy_Shadow enemy;
+    private EnemyShadow enemy;
     private int moveDir;
 
-    public ShadowBattleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Shadow enemy)
+    public ShadowBattleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemyShadow enemy)
         : base(_enemyBase, _stateMachine, _animBoolName)
     {
         this.enemy = enemy;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Blackhole_Skill_Controller : MonoBehaviour
+public class BlackholeSkillController : MonoBehaviour
 {
     [SerializeField] private GameObject hotKeyPrefab;
     [SerializeField] private List<KeyCode> keyCodeList;
@@ -184,7 +184,7 @@ public class Blackhole_Skill_Controller : MonoBehaviour
         KeyCode choosenKey = keyCodeList[Random.Range(0, keyCodeList.Count)];
         keyCodeList.Remove(choosenKey);
 
-        Blackhole_HotKey_Controller newHotKeyScript = newHotKey.GetComponent<Blackhole_HotKey_Controller>();
+        BlackholeHotKeyController newHotKeyScript = newHotKey.GetComponent<BlackholeHotKeyController>();
 
         newHotKeyScript.SetupHotKey(choosenKey, collision.transform, this);
     }

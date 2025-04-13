@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.ExceptionServices;
 using UnityEngine;
 
-public class Clone_Skill : Skill
+public class CloneSkill : Skill
 {
 
 
@@ -35,7 +35,7 @@ public class Clone_Skill : Skill
 
         GameObject newClone = Instantiate(clonePrefab);
 
-        newClone.GetComponent<Clone_Skill_Controller>().
+        newClone.GetComponent<CloneSkillController>().
             SetupClone(_clonePosition, cloneDuration, canAttack, _offset, FindClosestEnemy(newClone.transform), canDuplicateClone, chanceToDuplicate);
     }
 

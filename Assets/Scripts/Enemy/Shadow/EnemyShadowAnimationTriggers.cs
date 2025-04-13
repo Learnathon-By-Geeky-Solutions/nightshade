@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_ShadowAnimationTriggers : MonoBehaviour
+public class EnemyShadowAnimationTriggers : MonoBehaviour
 {
-    private Enemy_Shadow enemy => GetComponentInParent<Enemy_Shadow>();
+    private EnemyShadow enemy => GetComponentInParent<EnemyShadow>();
 
    
     public void AnimationTrigger()

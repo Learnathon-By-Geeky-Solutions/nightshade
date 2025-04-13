@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Shadow : Enemy
+public class EnemyShadow : Enemy
 {
     #region States
     public ShadowIdleState idleState { get; private set; }

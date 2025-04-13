@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShadowMoveState : ShadowGroundedState
 {
-    public ShadowMoveState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Shadow enemy) 
+    public ShadowMoveState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemyShadow enemy) 
         : base(_enemyBase, _stateMachine, _animBoolName, enemy)
     {
     }

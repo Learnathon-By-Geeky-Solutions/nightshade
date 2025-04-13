@@ -10,7 +10,7 @@ public enum SwordType
     Spin
 }
 
-public class Sword_Skill : Skill
+public class SwordSkill : Skill
 {
     public SwordType swordType = SwordType.Regular;
 
@@ -85,7 +85,7 @@ public class Sword_Skill : Skill
     public void CreateSword()
     {
         GameObject newSword = Instantiate(swordPrefab, player.transform.position, transform.rotation);
-        Sword_Skill_Controller newSwordScript = newSword.GetComponent<Sword_Skill_Controller>();
+        SwordSkillController newSwordScript = newSword.GetComponent<SwordSkillController>();
 
 
         if (swordType == SwordType.Bounce)

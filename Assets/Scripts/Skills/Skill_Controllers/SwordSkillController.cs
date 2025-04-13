@@ -4,7 +4,7 @@ using System.Runtime.ExceptionServices;
 using TMPro.EditorUtilities;
 using UnityEngine;
 
-public class Sword_Skill_Controller : MonoBehaviour
+public class SwordSkillController : MonoBehaviour
 {
     private Animator anim;
     private Rigidbody2D rb;

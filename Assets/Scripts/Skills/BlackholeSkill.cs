@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Blackhole_Skill : Skill
+public class BlackholeSkill : Skill
 {
     [SerializeField] private int amountOfAttacks;
     [SerializeField] private float cloneCooldown;
@@ -14,7 +14,7 @@ public class Blackhole_Skill : Skill
     [SerializeField] private float shrinkSpeed;
 
 
-    Blackhole_Skill_Controller currentBlackhole;
+    BlackholeSkillController currentBlackhole;
     public override bool CanUseSkill()
     {
         return base.CanUseSkill();
@@ -26,7 +26,7 @@ public class Blackhole_Skill : Skill
 
         GameObject newBlackHole = Instantiate(blackHolePrefab, player.transform.position, Quaternion.identity);
 
-        currentBlackhole = newBlackHole.GetComponent<Blackhole_Skill_Controller>();
+        currentBlackhole = newBlackHole.GetComponent<BlackholeSkillController>();
 
         currentBlackhole.SetupBlackhole(maxSize, growSpeed, shrinkSpeed, amountOfAttacks, cloneCooldown, blackholeDuration);
     }

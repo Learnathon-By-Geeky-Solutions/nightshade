@@ -48,7 +48,7 @@ public class PlayerGroundedState : PlayerState
             return true;
         }
 
-        player.sword.GetComponent<Sword_Skill_Controller>().ReturnSword();
+        player.sword.GetComponent<SwordSkillController>().ReturnSword();
         return false;
     }
 }

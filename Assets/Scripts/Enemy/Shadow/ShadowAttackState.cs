@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ShadowAttackState : EnemyState
 {
-    private Enemy_Shadow enemy;
+    private EnemyShadow enemy;
 
-    public ShadowAttackState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Shadow enemy)
+    public ShadowAttackState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemyShadow enemy)
         : base(_enemyBase, _stateMachine, _animBoolName)
     {
         this.enemy = enemy;
