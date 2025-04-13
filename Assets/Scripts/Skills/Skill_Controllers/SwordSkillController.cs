@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Enemy; 
-using Player; 
+using Enemy;
+using Player;
 
 namespace SkillControllers
 {
@@ -11,7 +11,7 @@ namespace SkillControllers
         private Animator anim;
         private Rigidbody2D rb;
         private CircleCollider2D cd;
-        private Player.Player player;  
+        private Player.Player player;
 
         private bool canRotate = true;
         private bool isReturning;
@@ -101,52 +101,62 @@ namespace SkillControllers
                 transform.right = rb.velocity;
 
             if (isReturning)
-            {
-                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, returnSpeed * Time.deltaTime);
-
-                if (Vector2.Distance(transform.position, player.transform.position) < 1)
-                    player.CatchTheSword();
-            }
+                HandleReturn();
 
             BounceLogic();
             SpinLogic();
         }
 
+        private void HandleReturn()
+        {
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, returnSpeed * Time.deltaTime);
+
+            if (Vector2.Distance(transform.position, player.transform.position) < 1)
+                player.CatchTheSword();
+        }
+
         private void SpinLogic()
         {
-            if (isSpinning)
+            if (!isSpinning) return;
+
+            if (Vector2.Distance(player.transform.position, transform.position) > maxTravelDistance && !wasStopped)
             {
-                if (Vector2.Distance(player.transform.position, transform.position) > maxTravelDistance && !wasStopped)
+                StopWhenSpinning();
+            }
+
+            if (wasStopped)
+            {
+                spinTimer -= Time.deltaTime;
+                HandleSpinMovement();
+                HandleSpinDamage();
+            }
+        }
+
+        private void HandleSpinMovement()
+        {
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x + 1, transform.position.y), 2.4f * Time.deltaTime);
+
+            if (spinTimer < 0)
+            {
+                isReturning = true;
+                isSpinning = false;
+            }
+        }
+
+        private void HandleSpinDamage()
+        {
+            hitTimer -= Time.deltaTime;
+
+            if (hitTimer < 0)
+            {
+                hitTimer = hitCooldown;
+                Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 1);
+
+                foreach (var hit in colliders)
                 {
-                    StopWhenSpinning();
-                }
-
-                if (wasStopped)
-                {
-                    spinTimer -= Time.deltaTime;
-
-                    transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x + 1, transform.position.y), 2.4f * Time.deltaTime);
-
-                    if (spinTimer < 0)
-                    {
-                        isReturning = true;
-                        isSpinning = false;
-                    }
-
-                    hitTimer -= Time.deltaTime;
-
-                    if (hitTimer < 0)
-                    {
-                        hitTimer = hitCooldown;
-
-                        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 1);
-
-                        foreach (var hit in colliders)
-                        {
-                            if (hit.GetComponent<Enemy.Enemy>() != null)  // Corrected to reference the Enemy class
-                                SwordSkillDamage(hit.GetComponent<Enemy.Enemy>());
-                        }
-                    }
+                    var enemy = hit.GetComponent<Enemy.Enemy>();
+                    if (enemy != null)
+                        SwordSkillDamage(enemy);
                 }
             }
         }
@@ -160,26 +170,25 @@ namespace SkillControllers
 
         private void BounceLogic()
         {
-            if (isBouncing && enemyTarget.Count > 0)
+            if (!isBouncing || enemyTarget.Count <= 0) return;
+
+            transform.position = Vector2.MoveTowards(transform.position, enemyTarget[targetIndex].position, bounceSpeed * Time.deltaTime);
+
+            if (Vector2.Distance(transform.position, enemyTarget[targetIndex].position) < 0.1f)
             {
-                transform.position = Vector2.MoveTowards(transform.position, enemyTarget[targetIndex].position, bounceSpeed * Time.deltaTime);
+                SwordSkillDamage(enemyTarget[targetIndex].GetComponent<Enemy.Enemy>());
 
-                if (Vector2.Distance(transform.position, enemyTarget[targetIndex].position) < .1f)
+                targetIndex++;
+                bounceAmount--;
+
+                if (bounceAmount <= 0)
                 {
-                    SwordSkillDamage(enemyTarget[targetIndex].GetComponent<Enemy.Enemy>());
-
-                    targetIndex++;
-                    bounceAmount--;
-
-                    if (bounceAmount <= 0)
-                    {
-                        isBouncing = false;
-                        isReturning = true;
-                    }
-
-                    if (targetIndex >= enemyTarget.Count)
-                        targetIndex = 0;
+                    isBouncing = false;
+                    isReturning = true;
                 }
+
+                if (targetIndex >= enemyTarget.Count)
+                    targetIndex = 0;
             }
         }
 
@@ -188,9 +197,9 @@ namespace SkillControllers
             if (isReturning)
                 return;
 
-            if (collision.GetComponent<Enemy.Enemy>() != null)  // Corrected to reference the Enemy class
+            var enemy = collision.GetComponent<Enemy.Enemy>();
+            if (enemy != null)
             {
-                Enemy.Enemy enemy = collision.GetComponent<Enemy.Enemy>();
                 SwordSkillDamage(enemy);
             }
 
@@ -198,7 +207,7 @@ namespace SkillControllers
             StuckInto(collision);
         }
 
-        private void SwordSkillDamage(Enemy.Enemy enemy)  // Corrected to reference the Enemy class
+        private void SwordSkillDamage(Enemy.Enemy enemy)
         {
             enemy.Damage();
             enemy.StartCoroutine("FreezeTimerFor", freezeTimeDuration);
@@ -206,24 +215,19 @@ namespace SkillControllers
 
         private void SetupTargetsForBounce(Collider2D collision)
         {
-            if (collision.GetComponent<Enemy.Enemy>() != null)
-            {
-                if (isBouncing && enemyTarget.Count <= 0)
-                {
-                    Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 10);
+            if (collision.GetComponent<Enemy.Enemy>() == null || !isBouncing || enemyTarget.Count > 0) return;
 
-                    foreach (var hit in colliders)
-                    {
-                        if (hit.GetComponent<Enemy.Enemy>() != null)
-                            enemyTarget.Add(hit.transform);
-                    }
-                }
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 10);
+            foreach (var hit in colliders)
+            {
+                if (hit.GetComponent<Enemy.Enemy>() != null)
+                    enemyTarget.Add(hit.transform);
             }
         }
 
         private void StuckInto(Collider2D collision)
         {
-            if (pierceAmount > 0 && collision.GetComponent<Enemy.Enemy>() != null)  // Corrected to reference the Enemy class
+            if (pierceAmount > 0 && collision.GetComponent<Enemy.Enemy>() != null)
             {
                 pierceAmount--;
                 return;
@@ -237,7 +241,6 @@ namespace SkillControllers
 
             canRotate = false;
             cd.enabled = false;
-
             rb.isKinematic = true;
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
