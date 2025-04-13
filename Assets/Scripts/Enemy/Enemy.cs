@@ -2,7 +2,8 @@ using Enemy;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+namespace Enemy
+{
     public class Enemys : Entity
     {
         [SerializeField] protected LayerMask whatIsPlayer;
@@ -106,3 +107,4 @@ using UnityEngine;
             Gizmos.DrawLine(transform.position, new Vector3(transform.position.x + attackDistance * facingDir, transform.position.y));
         }
     }
+}
