@@ -149,8 +149,8 @@ public class SwordSkillController : MonoBehaviour
 
                     foreach (var hit in colliders)
                     {
-                        if (hit.GetComponent<Enemy>() != null)
-                            SwordSkillDamage(hit.GetComponent<Enemy>());
+                        if (hit.GetComponent<Enemys>() != null)
+                            SwordSkillDamage(hit.GetComponent<Enemys>());
                     }
                 }
             }
@@ -175,7 +175,7 @@ public class SwordSkillController : MonoBehaviour
             if (Vector2.Distance(transform.position, enemyTarget[targetIndex].position) < .1f)
             {
 
-                SwordSkillDamage(enemyTarget[targetIndex].GetComponent<Enemy>());
+                SwordSkillDamage(enemyTarget[targetIndex].GetComponent<Enemys>());
 
                 targetIndex++;
                 bounceAmount--;
@@ -198,9 +198,9 @@ public class SwordSkillController : MonoBehaviour
             return;
 
 
-        if (collision.GetComponent<Enemy>() != null)
+        if (collision.GetComponent<Enemys>() != null)
         {
-            Enemy enemy = collision.GetComponent<Enemy>();
+            Enemys enemy = collision.GetComponent<Enemys>();
             SwordSkillDamage(enemy);
         }
 
@@ -210,7 +210,7 @@ public class SwordSkillController : MonoBehaviour
         StuckInto(collision);
     }
 
-    private void SwordSkillDamage(Enemy enemy)
+    private void SwordSkillDamage(Enemys enemy)
     {
         enemy.Damage();
         enemy.StartCoroutine("FreezeTimerFor", freezeTimeDuration);
@@ -218,7 +218,7 @@ public class SwordSkillController : MonoBehaviour
 
     private void SetupTargetsForBounce(Collider2D collision)
     {
-        if (collision.GetComponent<Enemy>() != null)
+        if (collision.GetComponent<Enemys>() != null)
         {
             if (isBouncing && enemyTarget.Count <= 0)
             {
@@ -226,7 +226,7 @@ public class SwordSkillController : MonoBehaviour
 
                 foreach (var hit in colliders)
                 {
-                    if (hit.GetComponent<Enemy>() != null)
+                    if (hit.GetComponent<Enemys>() != null)
                         enemyTarget.Add(hit.transform);
                 }
             }
@@ -235,7 +235,7 @@ public class SwordSkillController : MonoBehaviour
 
     private void StuckInto(Collider2D collision)
     {
-        if (pierceAmount > 0 && collision.GetComponent<Enemy>() != null)
+        if (pierceAmount > 0 && collision.GetComponent<Enemys>() != null)
         {
             pierceAmount--;
             return;

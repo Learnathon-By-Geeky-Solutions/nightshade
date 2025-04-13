@@ -1,29 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class EnemyShadowAnimationTriggers : MonoBehaviour
+namespace Enemy
 {
-    private EnemyShadow enemy => GetComponentInParent<EnemyShadow>();
-
-   
-    public void AnimationTrigger()
+    public class EnemyShadowAnimationTriggers : MonoBehaviour
     {
-        enemy.AnimationFinishTrigger();
-    }
+        private EnemyShadow enemy => GetComponentInParent<EnemyShadow>();
 
 
-    private void AttackTrigger()
-    {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(enemy.attackCheck.position, enemy.attackCheckRadius);
-
-        foreach (var hit in colliders)
+        public void AnimationTrigger()
         {
-            if (hit.GetComponent<Player>() != null)
-                hit.GetComponent<Player>().Damage();
+            enemy.AnimationFinishTrigger();
         }
-    }
 
-    private void OpenCounterWindow() => enemy.OpenCounterAttackWindow();
-    private void CloseCounterWindow() => enemy.CloseCounterAttackWindow();  
+
+        private void AttackTrigger()
+        {
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(enemy.attackCheck.position, enemy.attackCheckRadius);
+
+            foreach (var hit in colliders)
+            {
+                if (hit.GetComponent<Player>() != null)
+                    hit.GetComponent<Player>().Damage();
+            }
+        }
+
+        private void OpenCounterWindow() => enemy.OpenCounterAttackWindow();
+        private void CloseCounterWindow() => enemy.CloseCounterAttackWindow();
+    }
 }

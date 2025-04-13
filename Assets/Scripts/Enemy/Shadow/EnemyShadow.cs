@@ -1,54 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class EnemyShadow : Enemy
+namespace Enemy
 {
-    #region States
-    public ShadowIdleState idleState { get; private set; }
-    public ShadowMoveState moveState { get; private set; }
-    public ShadowBattleState battleState { get; private set; }
-    public ShadowAttackState attackState { get; private set; }
-   
-    public ShadowStunnedState stunnedState { get; private set; }
-
-    #endregion
-
-    protected override void Awake()
+    public class EnemyShadow : Enemys
     {
-        base.Awake();
-        
-        idleState = new ShadowIdleState(this, stateMachine, "Idle", this);
-        moveState = new ShadowMoveState(this, stateMachine, "Move", this);
-        battleState = new ShadowBattleState (this, stateMachine, "Move", this);
-        attackState = new ShadowAttackState (this, stateMachine, "Attack", this);
-        stunnedState = new ShadowStunnedState(this, stateMachine, "Stunned", this);
-    }
+        #region States
+        public ShadowIdleState idleState { get; private set; }
+        public ShadowMoveState moveState { get; private set; }
+        public ShadowBattleState battleState { get; private set; }
+        public ShadowAttackState attackState { get; private set; }
 
-    protected override void Start()
-    {
-        base.Start();
-        stateMachine.Initialize(idleState);
-    }
+        public ShadowStunnedState stunnedState { get; private set; }
 
-    protected override void Update()
-    {
-        base.Update();
+        #endregion
 
-        if (Input.GetKeyDown(KeyCode.U))
+        protected override void Awake()
         {
-            stateMachine.ChangeState(stunnedState);
+            base.Awake();
+
+            idleState = new ShadowIdleState(this, stateMachine, "Idle", this);
+            moveState = new ShadowMoveState(this, stateMachine, "Move", this);
+            battleState = new ShadowBattleState(this, stateMachine, "Move", this);
+            attackState = new ShadowAttackState(this, stateMachine, "Attack", this);
+            stunnedState = new ShadowStunnedState(this, stateMachine, "Stunned", this);
         }
-    }
 
-    public override bool CanBeStunned()
-    {
-        if (base.CanBeStunned()){
-
-            stateMachine.ChangeState(stunnedState);
-            return true;
-
+        protected override void Start()
+        {
+            base.Start();
+            stateMachine.Initialize(idleState);
         }
-        return false;
+
+        protected override void Update()
+        {
+            base.Update();
+
+            if (Input.GetKeyDown(KeyCode.U))
+            {
+                stateMachine.ChangeState(stunnedState);
+            }
+        }
+
+        public override bool CanBeStunned()
+        {
+            if (base.CanBeStunned())
+            {
+
+                stateMachine.ChangeState(stunnedState);
+                return true;
+
+            }
+            return false;
+        }
     }
 }

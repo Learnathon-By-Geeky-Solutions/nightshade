@@ -1,59 +1,61 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class ShadowBattleState : EnemyState
+namespace Enemy
 {
-    private Transform player; // Fixed spelling
-    private EnemyShadow enemy;
-    private int moveDir;
-
-    public ShadowBattleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemyShadow enemy)
-        : base(_enemyBase, _stateMachine, _animBoolName)
+    public class ShadowBattleState : EnemyState
     {
-        this.enemy = enemy;
-    }
+        private Transform player; // Fixed spelling
+        private EnemyShadow enemy;
+        private int moveDir;
 
-    public override void Enter()
-    {
-        base.Enter();
-        player = PlayerManager.instance.player.transform;
-    }
-
-    public override void Update()
-    {
-        base.Update();
-
-        if (enemy.IsPlayerDetected())
+        public ShadowBattleState(Enemys _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemyShadow enemy)
+            : base(_enemyBase, _stateMachine, _animBoolName)
         {
-            if (enemy.IsPlayerDetected().distance < enemy.attackDistance)
+            this.enemy = enemy;
+        }
+
+        public override void Enter()
+        {
+            base.Enter();
+            player = PlayerManager.instance.player.transform;
+        }
+
+        public override void Update()
+        {
+            base.Update();
+
+            if (enemy.IsPlayerDetected())
             {
-                if (CanAttack())
-                    stateMachine.ChangeState(enemy.attackState);
+                if (enemy.IsPlayerDetected().distance < enemy.attackDistance)
+                {
+                    if (CanAttack())
+                        stateMachine.ChangeState(enemy.attackState);
+                }
             }
+
+            if (player.position.x > enemy.transform.position.x) // Fixed spelling
+                moveDir = 1;
+            else if (player.position.x < enemy.transform.position.x) // Fixed spelling
+                moveDir = -1;
+
+            enemy.SetVelocity(enemy.moveSpeed * moveDir, rb.velocity.y); // Use enemy's Rigidbody
         }
 
-        if (player.position.x > enemy.transform.position.x) // Fixed spelling
-            moveDir = 1;
-        else if (player.position.x < enemy.transform.position.x) // Fixed spelling
-            moveDir = -1;
-
-        enemy.SetVelocity(enemy.moveSpeed * moveDir, rb.velocity.y); // Use enemy's Rigidbody
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-    }
-
-    private bool CanAttack()
-    {
-        if(Time.time >= enemy.lastTimeAttacked + enemy.attackCooldown)
+        public override void Exit()
         {
-            enemy.lastTimeAttacked = Time.time;
-            return true;
+            base.Exit();
         }
 
-        return false;
+        private bool CanAttack()
+        {
+            if (Time.time >= enemy.lastTimeAttacked + enemy.attackCooldown)
+            {
+                enemy.lastTimeAttacked = Time.time;
+                return true;
+            }
+
+            return false;
+        }
     }
 }

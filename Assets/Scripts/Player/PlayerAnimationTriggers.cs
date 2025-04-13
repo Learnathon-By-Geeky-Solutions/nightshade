@@ -17,8 +17,8 @@ public class PlayerAnimationTriggers : MonoBehaviour
 
         foreach (var hit in colliders)
         {
-            if (hit.GetComponent<Enemy>() != null)
-                hit.GetComponent<Enemy>().Damage();
+            if (hit.GetComponent<Enemys>() != null)
+                hit.GetComponent<Enemys>().Damage();
 
             //hit.GetComponent<Enemy>()?.Damage();
         }

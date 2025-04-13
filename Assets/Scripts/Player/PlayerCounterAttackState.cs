@@ -34,9 +34,9 @@ public class PlayerCounterAttackState : PlayerState
 
         foreach (var hit in colliders)
         {
-            if (hit.GetComponent<Enemy>() != null)
+            if (hit.GetComponent<Enemys>() != null)
             {
-                if (hit.GetComponent<Enemy>().CanBeStunned())
+                if (hit.GetComponent<Enemys>().CanBeStunned())
                 {
                     stateTimer = 10; // any value bigger than 1
                     player.anim.SetBool("SuccessfulCounterAttack", true);
