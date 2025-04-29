@@ -22,7 +22,6 @@ public class Enemy : Entity
     public float battleTime = 7;
     private float defaultMoveSpeed;
 
-
     [Header("Attack Info")]
     public float agroDistance = 2;
     public float attackDistance = 2;
@@ -32,7 +31,7 @@ public class Enemy : Entity
     [HideInInspector] public float lastTimeAttacked;
 
     public EnemyStateMachine stateMachine { get; private set; }
-    public EntityFX fx { get; private set; }
+    public new EntityFX fx { get; protected set; }  // Use 'new' to avoid hiding in derived class
 
     public string lastAnimBoolName { get; private set; }
 
@@ -55,11 +54,9 @@ public class Enemy : Entity
         base.Update();
 
         stateMachine.currentState.Update();
-
     }
 
     public virtual void AssignLastAnimName(string _animBoolName) => lastAnimBoolName = _animBoolName;
-
 
     public override void SlowEntityBy(float _slowPercentage, float _slowDuration)
     {
@@ -97,7 +94,6 @@ public class Enemy : Entity
         StartCoroutine(FreezeTimeCoroutine(_duration));
     }
 
-
     protected virtual IEnumerator FreezeTimeCoroutine(float _seconds)
     {
         FreezeTime(true);
@@ -134,7 +130,6 @@ public class Enemy : Entity
     public virtual void AnimationFinishTrigger() => stateMachine.currentState.AnimationFinishTrigger();
     public virtual void AnimationSpecialAttackTrigger()
     {
-
     }
 
     public virtual RaycastHit2D IsPlayerDetected()
