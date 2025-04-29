@@ -8,7 +8,7 @@ public class IceAndFireEffect : ItemEffect
     [SerializeField] private GameObject iceAndFirePrefab;
     [SerializeField] private float xVelocity;
 
-    public override void ExecuteEffect(Transform _respawnPosition)
+    public override void ExecuteEffect(Transform _enemyPosition)  // Renamed _respawnPosition to _enemyPosition
     {
         Player player = PlayerManager.instance.player;
 
@@ -16,7 +16,7 @@ public class IceAndFireEffect : ItemEffect
 
         if (thirdAttack)
         {
-            GameObject newIceAndFire = Instantiate(iceAndFirePrefab, _respawnPosition.position, player.transform.rotation);
+            GameObject newIceAndFire = Instantiate(iceAndFirePrefab, _enemyPosition.position, player.transform.rotation);  // Updated to _enemyPosition
             newIceAndFire.GetComponent<Rigidbody2D>().velocity = new Vector2(xVelocity * player.facingDir, 0);
 
             Destroy(newIceAndFire, 10);
