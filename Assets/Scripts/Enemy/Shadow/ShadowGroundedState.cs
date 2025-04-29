@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class ShadowGroundedState : EnemyState
 {
-    protected Enemy_Shadow enemy;
+    protected EnemyShadow enemy;
     protected Transform player;
 
-    public ShadowGroundedState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Shadow enemy)
-        : base(_enemyBase, _stateMachine, _animBoolName)
+    public ShadowGroundedState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemyShadow _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
     {
-        this.enemy = enemy;
+        this.enemy = _enemy;
     }
 
     public override void Enter()
@@ -29,7 +28,7 @@ public class ShadowGroundedState : EnemyState
     {
         base.Update();
 
-        if(enemy.IsPlayerDetected())
+        if (enemy.IsPlayerDetected() || Vector2.Distance(enemy.transform.position, player.transform.position) < 2)
             stateMachine.ChangeState(enemy.battleState);
     }
 }

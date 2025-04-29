@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ShadowStunnedState : EnemyState
 {
-    private Enemy_Shadow enemy;
+    private EnemyShadow enemy;
 
-    public ShadowStunnedState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Shadow _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
+    public ShadowStunnedState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemyShadow _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
     {
         this.enemy = _enemy;
     }
@@ -26,7 +26,7 @@ public class ShadowStunnedState : EnemyState
     {
         base.Exit();
 
-        enemy.fx.Invoke("CancelRedBlink", 0);
+        enemy.fx.Invoke("CancelColorChange", 0);
     }
 
     public override void Update()

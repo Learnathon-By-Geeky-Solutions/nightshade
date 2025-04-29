@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class ShadowIdleState : ShadowGroundedState
 {
-    public ShadowIdleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Shadow enemy) 
-        : base(_enemyBase, _stateMachine, _animBoolName, enemy)
+    public ShadowIdleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemyShadow enemy) : base(_enemyBase, _stateMachine, _animBoolName, enemy)
     {
     }
 
     public override void Enter()
     {
         base.Enter();
+
         stateTimer = enemy.idleTime;
     }
 
@@ -26,5 +26,6 @@ public class ShadowIdleState : ShadowGroundedState
 
         if (stateTimer < 0)
             stateMachine.ChangeState(enemy.moveState);
+
     }
 }

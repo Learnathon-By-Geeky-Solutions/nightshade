@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class ShadowAttackState : EnemyState
 {
-    private Enemy_Shadow enemy;
+    private EnemyShadow enemy;
 
-    public ShadowAttackState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Shadow enemy)
-        : base(_enemyBase, _stateMachine, _animBoolName)
+    public ShadowAttackState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemyShadow _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
     {
-        this.enemy = enemy;
+        this.enemy = _enemy;
     }
 
     public override void Enter()
@@ -28,9 +27,9 @@ public class ShadowAttackState : EnemyState
     {
         base.Update();
 
-        enemy.ZeroVelocity();
+        enemy.SetZeroVelocity();
 
-        if(triggerCalled)
+        if (triggerCalled)
             stateMachine.ChangeState(enemy.battleState);
     }
 }

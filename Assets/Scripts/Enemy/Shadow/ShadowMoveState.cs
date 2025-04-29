@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class ShadowMoveState : ShadowGroundedState
 {
-    public ShadowMoveState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Shadow enemy) 
-        : base(_enemyBase, _stateMachine, _animBoolName, enemy)
+    public ShadowMoveState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemyShadow enemy) : base(_enemyBase, _stateMachine, _animBoolName, enemy)
     {
     }
 
@@ -30,5 +29,6 @@ public class ShadowMoveState : ShadowGroundedState
             enemy.Flip();
             stateMachine.ChangeState(enemy.idleState);
         }
+
     }
 }

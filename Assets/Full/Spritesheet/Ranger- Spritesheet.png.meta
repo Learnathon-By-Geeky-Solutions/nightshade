@@ -1,0 +1,2226 @@
+fileFormatVersion: 2
+guid: f04c198b278ab264aa27b0b510a21daa
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 14
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 672
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7395c70d4d4bfe14dba63818e7935a5e
+      internalID: 675761192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 672
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11c57a5a4b5e09a4886271e87e5d6aa3
+      internalID: 234758494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 672
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45d279a2f77ea4344bc57d0cb06c6447
+      internalID: -672641084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 672
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96bb8f73526b38242859c5cbbfd8acec
+      internalID: 411016177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 672
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a73f0708950b3e43aa04c6124af8783
+      internalID: 1090737522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 672
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2970f1c247c821043a2131ebb3ca1622
+      internalID: -1745472934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 624
+        width: 17
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 645d446e35982d547843c258155e4da6
+      internalID: -1778896009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 624
+        width: 17
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d3066a9ba7b825418a303c894bb6c59
+      internalID: 1669643840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 624
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 608badd3851bf3648b82b07f5a2b1f97
+      internalID: 256205259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 624
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2fe58c3348d8f646a95039368e58c15
+      internalID: -2114096435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 624
+        width: 17
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2c17ac83ff54874abbc78e4b20eae90
+      internalID: 1106985525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 624
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a89683cd59f558c4baf66cf4609ba725
+      internalID: 39078534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 576
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50bd091028e62c240a645b78fa57d041
+      internalID: 1750816436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 577
+        width: 23
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9c0a7f08517771418171720fb5e96c2
+      internalID: 933923934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 579
+        width: 22
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 164d3a9ce65243c4f85b670b7df3f09f
+      internalID: -1452038177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 576
+        width: 23
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1603e9858490aa4a9d9f1186127d098
+      internalID: -644844117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 576
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bf4f0d49e68296419d0a04347db9306
+      internalID: -1527886209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 577
+        width: 25
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41f64d6a521b1d64e9a3c4e4056ae8b6
+      internalID: 1227039687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 579
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ba8c9fef1942aa459a9148f01e7e365
+      internalID: -1193779896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 576
+        width: 25
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a879e734472d7a44ea91e794f01278d4
+      internalID: 654229791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 528
+        width: 17
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5af6cb66e587a23469fad52ccaa8a47b
+      internalID: -1045620147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 529
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35c6f25ed99279e40a72928a80e53908
+      internalID: -941087598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 531
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 621271600ef5c6947901451f366a64da
+      internalID: -429249970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 528
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59cdd6d028f2897419a846df20fe2fc4
+      internalID: -1082404820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 528
+        width: 17
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba1aff690d4044749bb33a0336694b6e
+      internalID: 1387305249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 529
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c77b2ce80ef0844e945fa881b7e40b8
+      internalID: -634455128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 531
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c14d3445fdfcee24994c690574ae429f
+      internalID: -1994344207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 528
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e57f84ac0a54c15438a1bfbc05ba2a5a
+      internalID: 95083033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 480
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 254e4a6c20920f64f96e7c36f376fb00
+      internalID: 1116778260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 480
+        width: 26
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8909942375a7d5c4d85b3da64a99503e
+      internalID: 982175986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 487
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eb4c46e08a59a948b049f38e5f745c9
+      internalID: 1877063822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 488
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a63412c3bc762f844aa247b81e786478
+      internalID: 172203420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 485
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cbe16e1d41de824b8185c26957aa7c1
+      internalID: 992983086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 480
+        width: 30
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe60d2b691cbf1e45934654a1801e09c
+      internalID: -1969792582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 480
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 162be4b5c4fb8fa47a12be3727011cf6
+      internalID: -172195472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 480
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc4c4062aa9e8f84cb4bb84a40f4a53a
+      internalID: -637458978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 432
+        width: 17
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52d6fc8ef21c9b64f81254add8ea9734
+      internalID: -829042904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 432
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cdff3c837f55004f8b3df4aa63fbcf9
+      internalID: 1722933477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 438
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5d723e3e2b7b1441bbc678cbd3dde41
+      internalID: 2006836617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 436
+        width: 23
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7590f00b4a899d41a9c70ef53baffc2
+      internalID: 684707965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 435
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f36675e50a89444fae38362c0e678ba
+      internalID: -583734318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 432
+        width: 25
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16daf7972e0b84e4993ae35ee975c4d9
+      internalID: 1673987340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 432
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4f85c4891d400742b398e8919ef95e3
+      internalID: -666968116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 432
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 516da122a84a95e41baa6a10f6a60b55
+      internalID: 1024486905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 394
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0283ee3affb3eed448a827d0e968cc2c
+      internalID: -905249035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 388
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a61de3320ccfb244f949cf6e36f76e0c
+      internalID: 1568047234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 386
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f78cd351388b49147b06b5a1f6639325
+      internalID: 111923636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 338
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b39f1b5cf1e9a024a801597641963573
+      internalID: -2037231754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 340
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3af3060a5be5c8a4899ff43a37fa45c5
+      internalID: -1845908391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_49
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 346
+        width: 17
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20a18511f0de9c149aaed82e216cc5fb
+      internalID: -376895798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_50
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 348
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2ffd435683902042be7b582a0f0f7e2
+      internalID: -773771100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_51
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 288
+        width: 17
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c725ae7dbabaa6645bc352a9e5c45a54
+      internalID: -24292504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_52
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 288
+        width: 39
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0619698a2611ee841a7f281932a5b59e
+      internalID: 916028252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_53
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 288
+        width: 40
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2b21e87ff580aa43a1ec083372529dc
+      internalID: 56117895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_54
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 288
+        width: 7
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6ee00189ae0aa3438d20651fe3446ab
+      internalID: 1777001029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_55
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 288
+        width: 34
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ec22ebb9734e5341b89d5291a753bc8
+      internalID: -1524307568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_56
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 288
+        width: 34
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17414571f33da1b4a8b49e7e2abd6e2e
+      internalID: -1905017614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_57
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 240
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b01f11bcc30a2814cbeee4396e194bdf
+      internalID: -1346205239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_58
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 240
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52d9e428579babf42b932ee50e42a1c3
+      internalID: 928834014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_59
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 240
+        width: 33
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8527f38a3a61694f89d841d511080f2
+      internalID: -2125152717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_60
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 240
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f64369740140f9649a0360c4d75da92d
+      internalID: -1975830309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_61
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 240
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd1fe943c6dff224185e6b17a955d5a1
+      internalID: 645287108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_62
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 240
+        width: 37
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4051221d857327a48b9eccd39b62da28
+      internalID: 2039063373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_63
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 240
+        width: 37
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35c15bb559df1e8429408f024cbaa49c
+      internalID: 2071782604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_64
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 240
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67e485129586e164485044fffb41f4dc
+      internalID: 1374392140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_65
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 192
+        width: 17
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 736bb97760ca9e54da2e9ac3247f0dd1
+      internalID: 1590075574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_66
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 192
+        width: 23
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb812c74bc68f2649aa40f22dd08a73c
+      internalID: 1005677044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_67
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 192
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fa2a7fde2b987045af0cc648ada021c
+      internalID: -23075303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_68
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 144
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 759656b8953130c418e8928ddd752862
+      internalID: -1089849774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_69
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 146
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9e44689ead64f24595151d220bcafd0
+      internalID: 1207128074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_70
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 147
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8acf4f74ec13deb4dbfbf5f3def316e7
+      internalID: 967426810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_71
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 146
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3bd9d7e41caf2647a4a37a772f1fb1c
+      internalID: -1141191500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_72
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 96
+        width: 17
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 376be0bb0e61e594c84d3d1a3dee10e4
+      internalID: 970230216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_73
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 98
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da9732c0726a4b4479118a76424cb4e4
+      internalID: -707808855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_74
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 99
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4344cf2aa80e3d4bb9851467cc88536
+      internalID: -8466672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_75
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 98
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1c52dea9511e9546b694bbaa9b02905
+      internalID: -1389068158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_76
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 48
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e335b6b411bacb47a0e126946494b46
+      internalID: 356170731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_77
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 50
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ceeb2fcbe30e6540a23596406d09492
+      internalID: 1232629283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_78
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 51
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65d5dd2fdb228e744b5a3c568b0173f7
+      internalID: -54101457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_79
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 50
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb1bc715cd5976a41aa1e8dff2d7f54d
+      internalID: -1114755624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_80
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 48
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70f22eeecdbd14f439350f27ed5b36f9
+      internalID: 831617910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_81
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 48
+        width: 32
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abc2ba63243c0944b91937fa86d36a3c
+      internalID: -1288014585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_82
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 48
+        width: 27
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 423d784cae6d2e64eabc4ea5f992fdab
+      internalID: 2135359607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_83
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 48
+        width: 27
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2708e4e9dacd39469b6f671d489f96b
+      internalID: -1239549179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_84
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 48
+        width: 27
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d85021060907b784182dd13d70cbf629
+      internalID: 729960083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_85
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 48
+        width: 27
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 903a1d015a035ab459aa83d08a4ff2e1
+      internalID: -1714375447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_86
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 0
+        width: 17
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaddfcf8d4508a34bbcecf52347efadd
+      internalID: -803217541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_87
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 2
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 989b7be3bcd8817478b11a67d5201da9
+      internalID: -874032528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_88
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 3
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 958697462efe1f64d81738508701b5e8
+      internalID: -1213644730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_89
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 2
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e881b3cf182e5d341be9f332630689c4
+      internalID: 921761796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_90
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 0
+        width: 17
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fc32879d44ff0a4ea7c443837f34b48
+      internalID: 1918368319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_91
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 0
+        width: 24
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83fb04bb12fd3e749bbe325aa9089913
+      internalID: 2034860150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_92
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 0
+        width: 27
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ee4609f41cf09344aeacb225f3daf89
+      internalID: -1145423829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_93
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 0
+        width: 27
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a71def396c99daf4abc7054c0989242d
+      internalID: -1712272938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_94
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 0
+        width: 27
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f8c79a1acb65fb4584ba4adef385bb1
+      internalID: 1818569800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ranger- Spritesheet_95
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 27
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 765bb5c7453e52b44b7a5f37260ab3c8
+      internalID: -267036215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Ranger- Spritesheet_0: 675761192
+      Ranger- Spritesheet_1: 234758494
+      Ranger- Spritesheet_10: 1106985525
+      Ranger- Spritesheet_11: 39078534
+      Ranger- Spritesheet_12: 1750816436
+      Ranger- Spritesheet_13: 933923934
+      Ranger- Spritesheet_14: -1452038177
+      Ranger- Spritesheet_15: -644844117
+      Ranger- Spritesheet_16: -1527886209
+      Ranger- Spritesheet_17: 1227039687
+      Ranger- Spritesheet_18: -1193779896
+      Ranger- Spritesheet_19: 654229791
+      Ranger- Spritesheet_2: -672641084
+      Ranger- Spritesheet_20: -1045620147
+      Ranger- Spritesheet_21: -941087598
+      Ranger- Spritesheet_22: -429249970
+      Ranger- Spritesheet_23: -1082404820
+      Ranger- Spritesheet_24: 1387305249
+      Ranger- Spritesheet_25: -634455128
+      Ranger- Spritesheet_26: -1994344207
+      Ranger- Spritesheet_27: 95083033
+      Ranger- Spritesheet_28: 1116778260
+      Ranger- Spritesheet_29: 982175986
+      Ranger- Spritesheet_3: 411016177
+      Ranger- Spritesheet_30: 1877063822
+      Ranger- Spritesheet_31: 172203420
+      Ranger- Spritesheet_32: 992983086
+      Ranger- Spritesheet_33: -1969792582
+      Ranger- Spritesheet_34: -172195472
+      Ranger- Spritesheet_35: -637458978
+      Ranger- Spritesheet_36: -829042904
+      Ranger- Spritesheet_37: 1722933477
+      Ranger- Spritesheet_38: 2006836617
+      Ranger- Spritesheet_39: 684707965
+      Ranger- Spritesheet_4: 1090737522
+      Ranger- Spritesheet_40: -583734318
+      Ranger- Spritesheet_41: 1673987340
+      Ranger- Spritesheet_42: -666968116
+      Ranger- Spritesheet_43: 1024486905
+      Ranger- Spritesheet_44: -905249035
+      Ranger- Spritesheet_45: 1568047234
+      Ranger- Spritesheet_46: 111923636
+      Ranger- Spritesheet_47: -2037231754
+      Ranger- Spritesheet_48: -1845908391
+      Ranger- Spritesheet_49: -376895798
+      Ranger- Spritesheet_5: -1745472934
+      Ranger- Spritesheet_50: -773771100
+      Ranger- Spritesheet_51: -24292504
+      Ranger- Spritesheet_52: 916028252
+      Ranger- Spritesheet_53: 56117895
+      Ranger- Spritesheet_54: 1777001029
+      Ranger- Spritesheet_55: -1524307568
+      Ranger- Spritesheet_56: -1905017614
+      Ranger- Spritesheet_57: -1346205239
+      Ranger- Spritesheet_58: 928834014
+      Ranger- Spritesheet_59: -2125152717
+      Ranger- Spritesheet_6: -1778896009
+      Ranger- Spritesheet_60: -1975830309
+      Ranger- Spritesheet_61: 645287108
+      Ranger- Spritesheet_62: 2039063373
+      Ranger- Spritesheet_63: 2071782604
+      Ranger- Spritesheet_64: 1374392140
+      Ranger- Spritesheet_65: 1590075574
+      Ranger- Spritesheet_66: 1005677044
+      Ranger- Spritesheet_67: -23075303
+      Ranger- Spritesheet_68: -1089849774
+      Ranger- Spritesheet_69: 1207128074
+      Ranger- Spritesheet_7: 1669643840
+      Ranger- Spritesheet_70: 967426810
+      Ranger- Spritesheet_71: -1141191500
+      Ranger- Spritesheet_72: 970230216
+      Ranger- Spritesheet_73: -707808855
+      Ranger- Spritesheet_74: -8466672
+      Ranger- Spritesheet_75: -1389068158
+      Ranger- Spritesheet_76: 356170731
+      Ranger- Spritesheet_77: 1232629283
+      Ranger- Spritesheet_78: -54101457
+      Ranger- Spritesheet_79: -1114755624
+      Ranger- Spritesheet_8: 256205259
+      Ranger- Spritesheet_80: 831617910
+      Ranger- Spritesheet_81: -1288014585
+      Ranger- Spritesheet_82: 2135359607
+      Ranger- Spritesheet_83: -1239549179
+      Ranger- Spritesheet_84: 729960083
+      Ranger- Spritesheet_85: -1714375447
+      Ranger- Spritesheet_86: -803217541
+      Ranger- Spritesheet_87: -874032528
+      Ranger- Spritesheet_88: -1213644730
+      Ranger- Spritesheet_89: 921761796
+      Ranger- Spritesheet_9: -2114096435
+      Ranger- Spritesheet_90: 1918368319
+      Ranger- Spritesheet_91: 2034860150
+      Ranger- Spritesheet_92: -1145423829
+      Ranger- Spritesheet_93: -1712272938
+      Ranger- Spritesheet_94: 1818569800
+      Ranger- Spritesheet_95: -267036215
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
