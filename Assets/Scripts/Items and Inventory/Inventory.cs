@@ -1,10 +1,10 @@
-using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public static Inventory instance;
+    public static Inventory instance = null; // Changed to readonly
 
     public List<ItemData> startingItems;
 
@@ -17,10 +17,7 @@ public class Inventory : MonoBehaviour
     public List<InventoryItem> stash;
     public Dictionary<ItemData, InventoryItem> stashDictianory;
 
-
-
     [Header("Inventory UI")]
-
     [SerializeField] private Transform inventorySlotParent;
     [SerializeField] private Transform stashSlotParent;
     [SerializeField] private Transform equpmentSlotParent;
@@ -88,7 +85,6 @@ public class Inventory : MonoBehaviour
             AddItem(oldEquipment);
         }
 
-
         equipment.Add(newItem);
         equipmentDictionary.Add(newEquipment, newItem);
         newEquipment.AddModifiers();
@@ -129,7 +125,6 @@ public class Inventory : MonoBehaviour
             stashItemSlot[i].CleanUpSlot();
         }
 
-
         for (int i = 0; i < inventory.Count; i++)
         {
             inventoryItemSlot[i].UpdateSlot(inventory[i]);
@@ -147,8 +142,6 @@ public class Inventory : MonoBehaviour
             AddToInventory(_item);
         else if (_item.itemType == ItemType.Material)
             AddToStash(_item);
-
-
 
         UpdateSlotUI();
     }
@@ -194,7 +187,6 @@ public class Inventory : MonoBehaviour
                 value.RemoveStack();
         }
 
-
         if (stashDictianory.TryGetValue(_item, out InventoryItem stashValue))
         {
             if (stashValue.stackSize <= 1)
@@ -234,7 +226,6 @@ public class Inventory : MonoBehaviour
                 return false;
             }
         }
-
 
         for (int i = 0; i < materialsToRemove.Count; i++)
         {
