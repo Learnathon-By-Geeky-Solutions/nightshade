@@ -1,38 +1,42 @@
+using MyGameNamespace.Items;
+using MyGameNamespace.Players;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PlayerStats : CharacterStats
+namespace MyGameNamespace.Stats
 {
-    private Player player;
-
-    protected override void Start()
+    public class PlayerStats : CharacterStats
     {
-        base.Start();
+        private Player player;
 
-        player = GetComponent<Player>();
-    }
+        protected override void Start()
+        {
+            base.Start();
 
-    public override void TakeDamage(int _damage)
-    {
-        base.TakeDamage(_damage);
-    }
+            player = GetComponent<Player>();
+        }
 
-    protected override void Die()
-    {
-        base.Die();
-        player.Die();
+        public override void TakeDamage(int _damage)
+        {
+            base.TakeDamage(_damage);
+        }
 
-        GetComponent<PlayerItemDrop>()?.GenerateDrop();
-    }
+        protected override void Die()
+        {
+            base.Die();
+            player.Die();
 
-    protected override void DecreaseHealthBy(int _damage)
-    {
-        base.DecreaseHealthBy(_damage);
+            GetComponent<PlayerItemDrop>()?.GenerateDrop();
+        }
 
-        ItemDataEquipment currentArmor = Inventory.instance.GetEquipment(EquipmentType.Armor);
+        protected override void DecreaseHealthBy(int _damage)
+        {
+            base.DecreaseHealthBy(_damage);
 
-        if (currentArmor != null)
-            currentArmor.Effect(player.transform);
+            ItemDataEquipment currentArmor = Inventory.instance.GetEquipment(EquipmentType.Armor);
+
+            if (currentArmor != null)
+                currentArmor.Effect(player.transform);
+        }
     }
 }

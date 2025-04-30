@@ -1,39 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class SlimeStunnedState : EnemyState
+namespace MyGameNamespace.Enemies
 {
-    private EnemySlime enemy;
-
-    public SlimeStunnedState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemySlime _enemy)
-        : base(_enemyBase, _stateMachine, _animBoolName)
+    public class SlimeStunnedState : EnemyState
     {
-        this.enemy = _enemy;
-    }
+        private EnemySlime enemy;
 
-    public override void Enter()
-    {
-        base.Enter();
+        public SlimeStunnedState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemySlime _enemy)
+            : base(_enemyBase, _stateMachine, _animBoolName)
+        {
+            this.enemy = _enemy;
+        }
 
-        enemy.fx.InvokeRepeating("RedColorBlink", 0, .1f);
+        public override void Enter()
+        {
+            base.Enter();
 
-        stateTimer = enemy.stunDuration;
+            enemy.fx.InvokeRepeating("RedColorBlink", 0, .1f);
 
-        rb.velocity = new Vector2(-enemy.facingDir * enemy.stunDirection.x, enemy.stunDirection.y);
-    }
+            stateTimer = enemy.stunDuration;
 
-    public override void Exit()
-    {
-        base.Exit();
-        enemy.fx.Invoke("CancelColorChange", 0);
-    }
+            rb.velocity = new Vector2(-enemy.facingDir * enemy.stunDirection.x, enemy.stunDirection.y);
+        }
 
-    public override void Update()
-    {
-        base.Update();
+        public override void Exit()
+        {
+            base.Exit();
+            enemy.fx.Invoke("CancelColorChange", 0);
+        }
 
-        if (stateTimer < 0)
-            stateMachine.ChangeState(enemy.idleState);
+        public override void Update()
+        {
+            base.Update();
+
+            if (stateTimer < 0)
+                stateMachine.ChangeState(enemy.idleState);
+        }
     }
 }

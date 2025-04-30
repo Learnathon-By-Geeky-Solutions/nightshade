@@ -1,20 +1,23 @@
+using MyGameNamespace.Items;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using static UnityEditor.Progress;
-
-public class UICraftSlot : UIItemSlot
+namespace MyGameNamespace.Utils
 {
-    private void OnEnable()
+    public class UICraftSlot : UIItemSlot
     {
-        UpdateSlot(item);
-    }
+        private void OnEnable()
+        {
+            UpdateSlot(item);
+        }
 
-    public override void OnPointerDown(PointerEventData eventData)
-    {
-        ItemDataEquipment craftData = item.data as ItemDataEquipment;
+        public override void OnPointerDown(PointerEventData eventData)
+        {
+            ItemDataEquipment craftData = item.data as ItemDataEquipment;
 
-        Inventory.instance.CanCraft(craftData, craftData.craftingMaterials);
+            Inventory.instance.CanCraft(craftData, craftData.craftingMaterials);
+        }
     }
 }

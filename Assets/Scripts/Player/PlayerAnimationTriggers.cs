@@ -1,40 +1,46 @@
+using MyGameNamespace.Enemies;
+using MyGameNamespace.Items;
+using MyGameNamespace.Skills;
+using MyGameNamespace.Stats;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PlayerAnimationTriggers : MonoBehaviour
+namespace MyGameNamespace.Players
 {
-    private Player player => GetComponentInParent<Player>();
-
-    private void AnimationTrigger()
+    public class PlayerAnimationTriggers : MonoBehaviour
     {
-        player.AnimationTrigger();
-    }
+        private Player player => GetComponentInParent<Player>();
 
-    private void AttackTrigger()
-    {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(player.attackCheck.position, player.attackCheckRadius);
-
-        foreach (var hit in colliders)
+        private void AnimationTrigger()
         {
-            if (hit.GetComponent<Enemy>() != null)
+            player.AnimationTrigger();
+        }
+
+        private void AttackTrigger()
+        {
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(player.attackCheck.position, player.attackCheckRadius);
+
+            foreach (var hit in colliders)
             {
-                EnemyStats _target = hit.GetComponent<EnemyStats>();
+                if (hit.GetComponent<Enemy>() != null)
+                {
+                    EnemyStats _target = hit.GetComponent<EnemyStats>();
 
-                if (_target != null)
-                    player.stats.DoDamage(_target);
+                    if (_target != null)
+                        player.stats.DoDamage(_target);
 
-                ItemDataEquipment weaponData = Inventory.instance.GetEquipment(EquipmentType.Weapon);
+                    ItemDataEquipment weaponData = Inventory.instance.GetEquipment(EquipmentType.Weapon);
 
-                if (weaponData != null)
-                    weaponData.Effect(_target.transform);
+                    if (weaponData != null)
+                        weaponData.Effect(_target.transform);
 
 
+                }
             }
         }
-    }
-    private void ThrowSword()
-    {
-        SkillManager.instance.sword.CreateSword();
+        private void ThrowSword()
+        {
+            SkillManager.instance.sword.CreateSword();
+        }
     }
 }

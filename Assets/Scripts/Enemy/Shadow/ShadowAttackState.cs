@@ -1,35 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class ShadowAttackState : EnemyState
+namespace MyGameNamespace.Enemies
 {
-    private EnemyShadow enemy;
-
-    public ShadowAttackState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemyShadow _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
+    public class ShadowAttackState : EnemyState
     {
-        this.enemy = _enemy;
-    }
+        private EnemyShadow enemy;
 
-    public override void Enter()
-    {
-        base.Enter();
-    }
+        public ShadowAttackState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemyShadow _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
+        {
+            this.enemy = _enemy;
+        }
 
-    public override void Exit()
-    {
-        base.Exit();
+        public override void Enter()
+        {
+            base.Enter();
+        }
 
-        enemy.lastTimeAttacked = Time.time;
-    }
+        public override void Exit()
+        {
+            base.Exit();
 
-    public override void Update()
-    {
-        base.Update();
+            enemy.lastTimeAttacked = Time.time;
+        }
 
-        enemy.SetZeroVelocity();
+        public override void Update()
+        {
+            base.Update();
 
-        if (triggerCalled)
-            stateMachine.ChangeState(enemy.battleState);
+            enemy.SetZeroVelocity();
+
+            if (triggerCalled)
+                stateMachine.ChangeState(enemy.battleState);
+        }
     }
 }

@@ -1,94 +1,100 @@
+using MyGameNamespace.Enemies;
+using MyGameNamespace.Players;
+using MyGameNamespace.Skills;
+using MyGameNamespace.Stats;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class CloneSkillController : MonoBehaviour
+namespace MyGameNamespace.Controllers
 {
-    private Player player;
-    private SpriteRenderer sr;
-    private Animator anim;
-    [SerializeField] private float colorLoosingSpeed;
-
-    private float cloneTimer;
-    [SerializeField] private Transform attackCheck;
-    [SerializeField] private float attackCheckRadius = .8f;
-    private Transform closestEnemy;
-    private int facingDir = 1;
-
-
-    private bool canDuplicateClone;
-    private float chanceToDuplicate;
-
-    private void Awake()
+    public class CloneSkillController : MonoBehaviour
     {
-        sr = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
-    }
+        private Player player;
+        private SpriteRenderer sr;
+        private Animator anim;
+        [SerializeField] private float colorLoosingSpeed;
 
-    private void Update()
-    {
-        cloneTimer -= Time.deltaTime;
+        private float cloneTimer;
+        [SerializeField] private Transform attackCheck;
+        [SerializeField] private float attackCheckRadius = .8f;
+        private Transform closestEnemy;
+        private int facingDir = 1;
 
-        if (cloneTimer < 0)
+
+        private bool canDuplicateClone;
+        private float chanceToDuplicate;
+
+        private void Awake()
         {
-            sr.color = new Color(1, 1, 1, sr.color.a - (Time.deltaTime * colorLoosingSpeed));
-
-            if (sr.color.a <= 0)
-                Destroy(gameObject);
+            sr = GetComponent<SpriteRenderer>();
+            anim = GetComponent<Animator>();
         }
-    }
 
-    public void SetupClone(Transform _newTransform, float _cloneDuration, bool _canAttack, Vector3 _offset, Transform _closestEnemy, bool _canDuplicate, float _chanceToDuplicate, Player _player)
-    {
-        if (_canAttack)
-            anim.SetInteger("AttackNumber", Random.Range(1, 3));
-
-        player = _player;
-        transform.position = _newTransform.position + _offset;
-        cloneTimer = _cloneDuration;
-
-        canDuplicateClone = _canDuplicate;
-        chanceToDuplicate = _chanceToDuplicate;
-        closestEnemy = _closestEnemy;
-        FaceClosestTarget();
-    }
-
-
-    private void AnimationTrigger()
-    {
-        cloneTimer = -.1f;
-    }
-
-    private void AttackTrigger()
-    {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(attackCheck.position, attackCheckRadius);
-
-        foreach (var hit in colliders)
+        private void Update()
         {
-            if (hit.GetComponent<Enemy>() != null)
+            cloneTimer -= Time.deltaTime;
+
+            if (cloneTimer < 0)
             {
-                player.stats.DoDamage(hit.GetComponent<CharacterStats>());
+                sr.color = new Color(1, 1, 1, sr.color.a - (Time.deltaTime * colorLoosingSpeed));
+
+                if (sr.color.a <= 0)
+                    Destroy(gameObject);
+            }
+        }
+
+        public void SetupClone(Transform _newTransform, float _cloneDuration, bool _canAttack, Vector3 _offset, Transform _closestEnemy, bool _canDuplicate, float _chanceToDuplicate, Player _player)
+        {
+            if (_canAttack)
+                anim.SetInteger("AttackNumber", Random.Range(1, 3));
+
+            player = _player;
+            transform.position = _newTransform.position + _offset;
+            cloneTimer = _cloneDuration;
+
+            canDuplicateClone = _canDuplicate;
+            chanceToDuplicate = _chanceToDuplicate;
+            closestEnemy = _closestEnemy;
+            FaceClosestTarget();
+        }
 
 
-                if (canDuplicateClone)
+        private void AnimationTrigger()
+        {
+            cloneTimer = -.1f;
+        }
+
+        private void AttackTrigger()
+        {
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(attackCheck.position, attackCheckRadius);
+
+            foreach (var hit in colliders)
+            {
+                if (hit.GetComponent<Enemy>() != null)
                 {
-                    if (Random.Range(0, 100) < chanceToDuplicate)
+                    player.stats.DoDamage(hit.GetComponent<CharacterStats>());
+
+
+                    if (canDuplicateClone)
                     {
-                        SkillManager.instance.clone.CreateClone(hit.transform, new Vector3(.5f * facingDir, 0));
+                        if (Random.Range(0, 100) < chanceToDuplicate)
+                        {
+                            SkillManager.instance.clone.CreateClone(hit.transform, new Vector3(.5f * facingDir, 0));
+                        }
                     }
                 }
             }
         }
-    }
 
-    private void FaceClosestTarget()
-    {
-        if (closestEnemy != null)
+        private void FaceClosestTarget()
         {
-            if (transform.position.x > closestEnemy.position.x)
+            if (closestEnemy != null)
             {
-                facingDir = -1;
-                transform.Rotate(0, 180, 0);
+                if (transform.position.x > closestEnemy.position.x)
+                {
+                    facingDir = -1;
+                    transform.Rotate(0, 180, 0);
+                }
             }
         }
     }

@@ -4,12 +4,14 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 
-
-public class ItemEffect : ScriptableObject
+namespace MyGameNamespace.Effects
 {
-
-    public virtual void ExecuteEffect(Transform _enemyPosition)
+    public class ItemEffect : ScriptableObject
     {
-        Debug.Log("Effect executed!");
+
+        public virtual void ExecuteEffect(Transform _enemyPosition)
+        {
+            Debug.Log("Effect executed!");
+        }
     }
 }

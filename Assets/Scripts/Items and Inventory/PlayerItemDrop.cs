@@ -1,48 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PlayerItemDrop : ItemDrop
+namespace MyGameNamespace.Items
 {
-    [Header("Player's drop")]
-    [SerializeField] private float chanceToLooseItems;
-    [SerializeField] private float chanceToLooseMaterials;
-
-    public override void GenerateDrop()
+    public class PlayerItemDrop : ItemDrop
     {
-        Inventory inventory = Inventory.instance;
+        [Header("Player's drop")]
+        [SerializeField] private float chanceToLooseItems;
+        [SerializeField] private float chanceToLooseMaterials;
 
-        List<InventoryItem> itemsToUnequip = new List<InventoryItem>();
-        List<InventoryItem> materialsToLoose = new List<InventoryItem>();
-
-        foreach (InventoryItem item in inventory.GetEquipmentList())
+        public override void GenerateDrop()
         {
-            if (Random.Range(0, 100) <= chanceToLooseItems)
+            Inventory inventory = Inventory.instance;
+
+            List<InventoryItem> itemsToUnequip = new List<InventoryItem>();
+            List<InventoryItem> materialsToLoose = new List<InventoryItem>();
+
+            foreach (InventoryItem item in inventory.GetEquipmentList())
             {
-                DropItem(item.data);
-                itemsToUnequip.Add(item);
+                if (Random.Range(0, 100) <= chanceToLooseItems)
+                {
+                    DropItem(item.data);
+                    itemsToUnequip.Add(item);
+                }
             }
-        }
 
-        for (int i = 0; i < itemsToUnequip.Count; i++)
-        {
-            inventory.UnequipItem(itemsToUnequip[i].data as ItemDataEquipment);
-        }
-
-
-
-        foreach (InventoryItem item in inventory.GetStashList())
-        {
-            if (Random.Range(0, 100) <= chanceToLooseMaterials)
+            for (int i = 0; i < itemsToUnequip.Count; i++)
             {
-                DropItem(item.data);
-                materialsToLoose.Add(item);
+                inventory.UnequipItem(itemsToUnequip[i].data as ItemDataEquipment);
             }
-        }
 
-        for (int i = 0; i < materialsToLoose.Count; i++)
-        {
-            inventory.RemoveItem(materialsToLoose[i].data);
+
+
+            foreach (InventoryItem item in inventory.GetStashList())
+            {
+                if (Random.Range(0, 100) <= chanceToLooseMaterials)
+                {
+                    DropItem(item.data);
+                    materialsToLoose.Add(item);
+                }
+            }
+
+            for (int i = 0; i < materialsToLoose.Count; i++)
+            {
+                inventory.RemoveItem(materialsToLoose[i].data);
+            }
         }
     }
 }

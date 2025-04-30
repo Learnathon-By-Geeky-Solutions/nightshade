@@ -1,20 +1,24 @@
+using MyGameNamespace.Players;
+using MyGameNamespace.Stats;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class ItemObjectTrigger : MonoBehaviour
+namespace MyGameNamespace.Items
 {
-    private ItemObject myItemObject => GetComponentInParent<ItemObject>();
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class ItemObjectTrigger : MonoBehaviour
     {
-        if (collision.GetComponent<Player>() != null)
-        {
-            if (collision.GetComponent<CharacterStats>().isDead)
-                return;
+        private ItemObject myItemObject => GetComponentInParent<ItemObject>();
 
-            Debug.Log("Picked up item ");
-            myItemObject.PickupItem();
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.GetComponent<Player>() != null)
+            {
+                if (collision.GetComponent<CharacterStats>().isDead)
+                    return;
+
+                Debug.Log("Picked up item ");
+                myItemObject.PickupItem();
+            }
         }
     }
 }

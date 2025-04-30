@@ -1,35 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class SlimeAttackState : EnemyState
+namespace MyGameNamespace.Enemies
 {
-    protected EnemySlime enemy;
-
-    public SlimeAttackState(EnemySlime _enemy, EnemyStateMachine _stateMachine, string _animBoolName, EnemySlime __enemy)
-        : base(_enemy, _stateMachine, _animBoolName)
+    public class SlimeAttackState : EnemyState
     {
-        this.enemy = __enemy;
-    }
+        protected EnemySlime enemy;
 
-    public override void Enter()
-    {
-        base.Enter();
-    }
+        public SlimeAttackState(EnemySlime _enemy, EnemyStateMachine _stateMachine, string _animBoolName, EnemySlime __enemy)
+            : base(_enemy, _stateMachine, _animBoolName)
+        {
+            this.enemy = __enemy;
+        }
 
-    public override void Exit()
-    {
-        base.Exit();
-        enemy.lastTimeAttacked = Time.time;
-    }
+        public override void Enter()
+        {
+            base.Enter();
+        }
 
-    public override void Update()
-    {
-        base.Update();
+        public override void Exit()
+        {
+            base.Exit();
+            enemy.lastTimeAttacked = Time.time;
+        }
 
-        enemy.SetZeroVelocity();
+        public override void Update()
+        {
+            base.Update();
 
-        if (triggerCalled)
-            stateMachine.ChangeState(enemy.battleState);
+            enemy.SetZeroVelocity();
+
+            if (triggerCalled)
+                stateMachine.ChangeState(enemy.battleState);
+        }
     }
 }

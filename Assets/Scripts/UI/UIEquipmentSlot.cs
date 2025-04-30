@@ -1,24 +1,27 @@
+using MyGameNamespace.Items;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using static UnityEditor.Progress;
-
-public class UIEquipmentSlot : UIItemSlot
+namespace MyGameNamespace.Utils
 {
-    public EquipmentType slotType;
-
-    private void OnValidate()
+    public class UIEquipmentSlot : UIItemSlot
     {
-        gameObject.name = "Equipment slot - " + slotType.ToString();
-    }
+        public EquipmentType slotType;
 
-    public override void OnPointerDown(PointerEventData eventData)
-    {
-        Inventory.instance.UnequipItem(item.data as ItemDataEquipment);
-        Inventory.instance.AddItem(item.data as ItemDataEquipment);
+        private void OnValidate()
+        {
+            gameObject.name = "Equipment slot - " + slotType.ToString();
+        }
+
+        public override void OnPointerDown(PointerEventData eventData)
+        {
+            Inventory.instance.UnequipItem(item.data as ItemDataEquipment);
+            Inventory.instance.AddItem(item.data as ItemDataEquipment);
 
 
-        CleanUpSlot();
+            CleanUpSlot();
+        }
     }
 }

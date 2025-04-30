@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class IceAndFireController : ThunderStrikeController
+namespace MyGameNamespace.Controllers
 {
-    protected override void OnTriggerEnter2D(Collider2D collision)
+    public class IceAndFireController : ThunderStrikeController
     {
-        base.OnTriggerEnter2D(collision);
+        protected override void OnTriggerEnter2D(Collider2D collision)
+        {
+            base.OnTriggerEnter2D(collision);
+        }
     }
 }

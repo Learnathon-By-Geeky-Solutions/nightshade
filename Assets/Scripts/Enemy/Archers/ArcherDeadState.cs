@@ -1,30 +1,32 @@
 using UnityEngine;
-
-public class ArcherDeadState : EnemyState
+namespace MyGameNamespace.Enemies
 {
-    private Enemy_Archer enemy;
-
-    public ArcherDeadState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Archer _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
+    public class ArcherDeadState : EnemyState
     {
-        this.enemy = _enemy;
-    }
+        private Enemy_Archer enemy;
 
-    public override void Enter()
-    {
-        base.Enter();
+        public ArcherDeadState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Archer _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
+        {
+            this.enemy = _enemy;
+        }
 
-        enemy.anim.SetBool(enemy.lastAnimBoolName, true);
-        enemy.anim.speed = 0;
-        enemy.cd.enabled = false;
+        public override void Enter()
+        {
+            base.Enter();
 
-        stateTimer = .15f;
-    }
+            enemy.anim.SetBool(enemy.lastAnimBoolName, true);
+            enemy.anim.speed = 0;
+            enemy.cd.enabled = false;
 
-    public override void Update()
-    {
-        base.Update();
+            stateTimer = .15f;
+        }
 
-        if (stateTimer > 0)
-            rb.velocity = new Vector2(0, 10);
+        public override void Update()
+        {
+            base.Update();
+
+            if (stateTimer > 0)
+                rb.velocity = new Vector2(0, 10);
+        }
     }
 }

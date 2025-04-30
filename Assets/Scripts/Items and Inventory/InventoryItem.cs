@@ -1,17 +1,19 @@
 using System;
-
-[Serializable]
-public class InventoryItem
+namespace MyGameNamespace.Items
 {
-    public ItemData data;
-    public int stackSize;
-    public InventoryItem(ItemData _newItemData)
+    [Serializable]
+    public class InventoryItem
     {
-        data = _newItemData;
-        AddStack();
+        public ItemData data;
+        public int stackSize;
+        public InventoryItem(ItemData _newItemData)
+        {
+            data = _newItemData;
+            AddStack();
+        }
+
+
+        public void AddStack() => stackSize++;
+        public void RemoveStack() => stackSize--;
     }
-
-
-    public void AddStack() => stackSize++;
-    public void RemoveStack() => stackSize--;
 }

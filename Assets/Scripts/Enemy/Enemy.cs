@@ -1,159 +1,164 @@
+using MyGameNamespace.Items;
+using MyGameNamespace.Stats;
+using MyGameNamespace.Utils;
 using System.Collections;
 using UnityEngine;
-
-[RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(CapsuleCollider2D))]
-[RequireComponent(typeof(EnemyStats))]
-[RequireComponent(typeof(EntityFX))]
-[RequireComponent(typeof(ItemDrop))]
-public class Enemy : Entity
+namespace MyGameNamespace.Enemies
 {
-    [SerializeField] protected LayerMask whatIsPlayer;
-
-    [Header("Stunned Info")]
-    public float stunDuration = 1;
-    public Vector2 stunDirection = new Vector2(10, 12);
-    protected bool canBeStunned;
-    [SerializeField] protected GameObject counterImage;
-
-    [Header("Move Info")]
-    public float moveSpeed = 1.5f;
-    public float idleTime = 2;
-    public float battleTime = 7;
-    private float defaultMoveSpeed;
-
-    [Header("Attack Info")]
-    public float agroDistance = 2;
-    public float attackDistance = 2;
-    public float attackCooldown;
-    public float minAttackCooldown = 1;
-    public float maxAttackCooldown = 2;
-    [HideInInspector] public float lastTimeAttacked;
-
-    public EnemyStateMachine stateMachine { get; private set; }
-    public new EntityFX fx { get; protected set; }  // Use 'new' to avoid hiding in derived class
-
-    public string lastAnimBoolName { get; private set; }
-
-    protected override void Awake()
+    [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(CapsuleCollider2D))]
+    [RequireComponent(typeof(EnemyStats))]
+    [RequireComponent(typeof(EntityFX))]
+    [RequireComponent(typeof(ItemDrop))]
+    public class Enemy : Entity
     {
-        base.Awake();
+        [SerializeField] protected LayerMask whatIsPlayer;
 
-        stateMachine = new EnemyStateMachine();
-        defaultMoveSpeed = moveSpeed;
-    }
+        [Header("Stunned Info")]
+        public float stunDuration = 1;
+        public Vector2 stunDirection = new Vector2(10, 12);
+        protected bool canBeStunned;
+        [SerializeField] protected GameObject counterImage;
 
-    protected override void Start()
-    {
-        base.Start();
-        fx = GetComponent<EntityFX>();
-    }
+        [Header("Move Info")]
+        public float moveSpeed = 1.5f;
+        public float idleTime = 2;
+        public float battleTime = 7;
+        private float defaultMoveSpeed;
 
-    protected override void Update()
-    {
-        base.Update();
+        [Header("Attack Info")]
+        public float agroDistance = 2;
+        public float attackDistance = 2;
+        public float attackCooldown;
+        public float minAttackCooldown = 1;
+        public float maxAttackCooldown = 2;
+        [HideInInspector] public float lastTimeAttacked;
 
-        stateMachine.currentState.Update();
-    }
+        public EnemyStateMachine stateMachine { get; private set; }
+        public new EntityFX fx { get; protected set; }  // Use 'new' to avoid hiding in derived class
 
-    public virtual void AssignLastAnimName(string _animBoolName) => lastAnimBoolName = _animBoolName;
+        public string lastAnimBoolName { get; private set; }
 
-    public override void SlowEntityBy(float _slowPercentage, float _slowDuration)
-    {
-        base.SlowEntityBy(_slowPercentage, _slowDuration);
-
-        moveSpeed = moveSpeed * (1 - _slowPercentage);
-        anim.speed = anim.speed * (1 - _slowPercentage);
-
-        Invoke("ReturnDefaultSpeed", _slowDuration);
-    }
-
-    protected override void ReturnDefaultSpeed()
-    {
-        base.ReturnDefaultSpeed();
-
-        moveSpeed = defaultMoveSpeed;
-    }
-
-    public virtual void FreezeTime(bool _timeFroze)
-    {
-        if (_timeFroze)
+        protected override void Awake()
         {
-            moveSpeed = 0;
-            anim.speed = 0;
+            base.Awake();
+
+            stateMachine = new EnemyStateMachine();
+            defaultMoveSpeed = moveSpeed;
         }
-        else
+
+        protected override void Start()
         {
+            base.Start();
+            fx = GetComponent<EntityFX>();
+        }
+
+        protected override void Update()
+        {
+            base.Update();
+
+            stateMachine.currentState.Update();
+        }
+
+        public virtual void AssignLastAnimName(string _animBoolName) => lastAnimBoolName = _animBoolName;
+
+        public override void SlowEntityBy(float _slowPercentage, float _slowDuration)
+        {
+            base.SlowEntityBy(_slowPercentage, _slowDuration);
+
+            moveSpeed = moveSpeed * (1 - _slowPercentage);
+            anim.speed = anim.speed * (1 - _slowPercentage);
+
+            Invoke("ReturnDefaultSpeed", _slowDuration);
+        }
+
+        protected override void ReturnDefaultSpeed()
+        {
+            base.ReturnDefaultSpeed();
+
             moveSpeed = defaultMoveSpeed;
-            anim.speed = 1;
         }
-    }
 
-    public virtual void FreezeTimeFor(float _duration)
-    {
-        StartCoroutine(FreezeTimeCoroutine(_duration));
-    }
-
-    protected virtual IEnumerator FreezeTimeCoroutine(float _seconds)
-    {
-        FreezeTime(true);
-
-        yield return new WaitForSeconds(_seconds);
-
-        FreezeTime(false);
-    }
-
-    #region Counter Attack Window
-    public virtual void OpenCounterAttackWindow()
-    {
-        canBeStunned = true;
-        counterImage.SetActive(true);
-    }
-
-    public virtual void CloseCounterAttackWindow()
-    {
-        canBeStunned = false;
-        counterImage.SetActive(false);
-    }
-    #endregion
-
-    public virtual bool CanBeStunned()
-    {
-        if (canBeStunned)
+        public virtual void FreezeTime(bool _timeFroze)
         {
-            CloseCounterAttackWindow();
-            return true;
+            if (_timeFroze)
+            {
+                moveSpeed = 0;
+                anim.speed = 0;
+            }
+            else
+            {
+                moveSpeed = defaultMoveSpeed;
+                anim.speed = 1;
+            }
         }
-        return false;
-    }
 
-    public virtual void AnimationFinishTrigger() => stateMachine.currentState.AnimationFinishTrigger();
-    public virtual void AnimationSpecialAttackTrigger()
-    {
-    }
-
-    public virtual RaycastHit2D IsPlayerDetected()
-    {
-        float raycastLength = 30;
-
-        RaycastHit2D playerDetected = Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, raycastLength, whatIsPlayer);
-
-        RaycastHit2D wallDetected = Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, raycastLength, whatIsGround);
-
-        if (wallDetected)
+        public virtual void FreezeTimeFor(float _duration)
         {
-            if (wallDetected.distance < playerDetected.distance)
-                return default(RaycastHit2D);
+            StartCoroutine(FreezeTimeCoroutine(_duration));
         }
 
-        return playerDetected;
-    }
+        protected virtual IEnumerator FreezeTimeCoroutine(float _seconds)
+        {
+            FreezeTime(true);
 
-    protected override void OnDrawGizmos()
-    {
-        base.OnDrawGizmos();
+            yield return new WaitForSeconds(_seconds);
 
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, new Vector3(transform.position.x + attackDistance * facingDir, transform.position.y));
+            FreezeTime(false);
+        }
+
+        #region Counter Attack Window
+        public virtual void OpenCounterAttackWindow()
+        {
+            canBeStunned = true;
+            counterImage.SetActive(true);
+        }
+
+        public virtual void CloseCounterAttackWindow()
+        {
+            canBeStunned = false;
+            counterImage.SetActive(false);
+        }
+        #endregion
+
+        public virtual bool CanBeStunned()
+        {
+            if (canBeStunned)
+            {
+                CloseCounterAttackWindow();
+                return true;
+            }
+            return false;
+        }
+
+        public virtual void AnimationFinishTrigger() => stateMachine.currentState.AnimationFinishTrigger();
+        public virtual void AnimationSpecialAttackTrigger()
+        {
+        }
+
+        public virtual RaycastHit2D IsPlayerDetected()
+        {
+            float raycastLength = 30;
+
+            RaycastHit2D playerDetected = Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, raycastLength, whatIsPlayer);
+
+            RaycastHit2D wallDetected = Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, raycastLength, whatIsGround);
+
+            if (wallDetected)
+            {
+                if (wallDetected.distance < playerDetected.distance)
+                    return default(RaycastHit2D);
+            }
+
+            return playerDetected;
+        }
+
+        protected override void OnDrawGizmos()
+        {
+            base.OnDrawGizmos();
+
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawLine(transform.position, new Vector3(transform.position.x + attackDistance * facingDir, transform.position.y));
+        }
     }
 }

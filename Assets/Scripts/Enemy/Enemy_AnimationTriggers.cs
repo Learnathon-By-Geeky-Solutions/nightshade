@@ -1,38 +1,42 @@
+using MyGameNamespace.Players;
+using MyGameNamespace.Stats;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Enemy_AnimationTriggers : MonoBehaviour
+namespace MyGameNamespace.Enemies
 {
-    private Enemy enemy => GetComponentInParent<Enemy>();
-
-    private void AnimationTrigger()
+    public class Enemy_AnimationTriggers : MonoBehaviour
     {
-        enemy.AnimationFinishTrigger();
-    }
+        private Enemy enemy => GetComponentInParent<Enemy>();
 
-    private void AttackTrigger()
-    {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(enemy.attackCheck.position, enemy.attackCheckRadius);
-
-        foreach (var hit in colliders)
+        private void AnimationTrigger()
         {
-            if (hit.GetComponent<Player>() != null)
-            {
-                PlayerStats target = hit.GetComponent<PlayerStats>();
+            enemy.AnimationFinishTrigger();
+        }
 
-                if(enemy.stats.lightingDamage.GetValue() >= 1)
-                    enemy.stats.DoMagicalDamage(target);
-                enemy.stats.DoDamage(target);
+        private void AttackTrigger()
+        {
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(enemy.attackCheck.position, enemy.attackCheckRadius);
+
+            foreach (var hit in colliders)
+            {
+                if (hit.GetComponent<Player>() != null)
+                {
+                    PlayerStats target = hit.GetComponent<PlayerStats>();
+
+                    if (enemy.stats.lightingDamage.GetValue() >= 1)
+                        enemy.stats.DoMagicalDamage(target);
+                    enemy.stats.DoDamage(target);
+                }
             }
         }
-    }
 
-    private void SpecialAttackTrigger()
-    {
-        enemy.AnimationSpecialAttackTrigger();
-    }
+        private void SpecialAttackTrigger()
+        {
+            enemy.AnimationSpecialAttackTrigger();
+        }
 
-    private void OpenCounterWindow() => enemy.OpenCounterAttackWindow();
-    private void CloseCounterWindow() => enemy.CloseCounterAttackWindow();
+        private void OpenCounterWindow() => enemy.OpenCounterAttackWindow();
+        private void CloseCounterWindow() => enemy.CloseCounterAttackWindow();
+    }
 }

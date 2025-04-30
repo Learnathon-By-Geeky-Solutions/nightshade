@@ -1,33 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class SlimeDeadState : EnemyState
+namespace MyGameNamespace.Enemies
 {
-    private EnemySlime enemy;
-
-    public SlimeDeadState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemySlime _enemy)
-        : base(_enemyBase, _stateMachine, _animBoolName)
+    public class SlimeDeadState : EnemyState
     {
-        this.enemy = _enemy;
-    }
+        private EnemySlime enemy;
 
-    public override void Enter()
-    {
-        base.Enter();
+        public SlimeDeadState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemySlime _enemy)
+            : base(_enemyBase, _stateMachine, _animBoolName)
+        {
+            this.enemy = _enemy;
+        }
 
-        enemy.anim.SetBool(enemy.lastAnimBoolName, true);
-        enemy.anim.speed = 0;
-        enemy.cd.enabled = false;
+        public override void Enter()
+        {
+            base.Enter();
 
-        stateTimer = .15f;
-    }
+            enemy.anim.SetBool(enemy.lastAnimBoolName, true);
+            enemy.anim.speed = 0;
+            enemy.cd.enabled = false;
 
-    public override void Update()
-    {
-        base.Update();
+            stateTimer = .15f;
+        }
 
-        if (stateTimer > 0)
-            rb.velocity = new Vector2(0, 10);
+        public override void Update()
+        {
+            base.Update();
+
+            if (stateTimer > 0)
+                rb.velocity = new Vector2(0, 10);
+        }
     }
 }

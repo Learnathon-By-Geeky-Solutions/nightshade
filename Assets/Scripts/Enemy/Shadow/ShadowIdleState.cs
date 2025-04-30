@@ -1,31 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class ShadowIdleState : ShadowGroundedState
+namespace MyGameNamespace.Enemies
 {
-    public ShadowIdleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemyShadow enemy) : base(_enemyBase, _stateMachine, _animBoolName, enemy)
+    public class ShadowIdleState : ShadowGroundedState
     {
-    }
+        public ShadowIdleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemyShadow enemy) : base(_enemyBase, _stateMachine, _animBoolName, enemy)
+        {
+        }
 
-    public override void Enter()
-    {
-        base.Enter();
+        public override void Enter()
+        {
+            base.Enter();
 
-        stateTimer = enemy.idleTime;
-    }
+            stateTimer = enemy.idleTime;
+        }
 
-    public override void Exit()
-    {
-        base.Exit();
-    }
+        public override void Exit()
+        {
+            base.Exit();
+        }
 
-    public override void Update()
-    {
-        base.Update();
+        public override void Update()
+        {
+            base.Update();
 
-        if (stateTimer < 0)
-            stateMachine.ChangeState(enemy.moveState);
+            if (stateTimer < 0)
+                stateMachine.ChangeState(enemy.moveState);
 
+        }
     }
 }

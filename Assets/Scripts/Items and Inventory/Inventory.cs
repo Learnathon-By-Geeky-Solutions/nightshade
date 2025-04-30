@@ -1,8 +1,10 @@
+using MyGameNamespace.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Inventory : MonoBehaviour
+namespace MyGameNamespace.Items
+{
+    public class Inventory : MonoBehaviour
 {
     public static Inventory instance = null; // Changed to readonly
 
@@ -289,3 +291,4 @@ public class Inventory : MonoBehaviour
         return false;
     }
 }
+    }

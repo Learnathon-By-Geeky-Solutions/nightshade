@@ -3,70 +3,72 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
-
-public class FileDataHandler
+namespace MyGameNamespace.SaveLoad
 {
-    private string dataDirPath = "";
-    private string dataFileName = "";
-
-    public FileDataHandler(string _dataDirPath, string _dataFileName)
+    public class FileDataHandler
     {
-        this.dataDirPath = _dataDirPath;
-        this.dataFileName = _dataFileName;
-    }
+        private string dataDirPath = "";
+        private string dataFileName = "";
 
-    public void Save(GameData _data)
-    {
-        string fullPath = Path.Combine(dataDirPath, dataFileName);
-
-        try
+        public FileDataHandler(string _dataDirPath, string _dataFileName)
         {
-            Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
+            this.dataDirPath = _dataDirPath;
+            this.dataFileName = _dataFileName;
+        }
 
-            string dataToStore = JsonUtility.ToJson(_data, true);
+        public void Save(GameData _data)
+        {
+            string fullPath = Path.Combine(dataDirPath, dataFileName);
 
-            using (FileStream stream = new FileStream(fullPath, FileMode.Create))
+            try
             {
-                using (StreamWriter writer = new StreamWriter(stream))
+                Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
+
+                string dataToStore = JsonUtility.ToJson(_data, true);
+
+                using (FileStream stream = new FileStream(fullPath, FileMode.Create))
                 {
-                    writer.Write(dataToStore);
+                    using (StreamWriter writer = new StreamWriter(stream))
+                    {
+                        writer.Write(dataToStore);
+                    }
                 }
             }
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("Error on trying to save data to file: " + fullPath + "\n" + e);
-        }
-    }
-
-    public GameData Load()
-{
-    string fullPath = Path.Combine(dataDirPath, dataFileName);
-    GameData loadData = null;
-
-    if (File.Exists(fullPath))
-    {
-        try
-        {
-            string dataToLoad = "";
-
-            using (FileStream stream = new FileStream(fullPath, FileMode.Open))
+            catch (Exception e)
             {
-                using (StreamReader reader = new StreamReader(stream))
+                Debug.LogError("Error on trying to save data to file: " + fullPath + "\n" + e);
+            }
+        }
+
+        public GameData Load()
+        {
+            string fullPath = Path.Combine(dataDirPath, dataFileName);
+            GameData loadData = null;
+
+            if (File.Exists(fullPath))
+            {
+                try
                 {
-                    dataToLoad = reader.ReadToEnd();
+                    string dataToLoad = "";
+
+                    using (FileStream stream = new FileStream(fullPath, FileMode.Open))
+                    {
+                        using (StreamReader reader = new StreamReader(stream))
+                        {
+                            dataToLoad = reader.ReadToEnd();
+                        }
+                    }
+
+                    loadData = JsonUtility.FromJson<GameData>(dataToLoad);
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError("Error on trying to load data from file: " + fullPath + "\n" + e);
                 }
             }
 
-            loadData = JsonUtility.FromJson<GameData>(dataToLoad);
+            return loadData;
         }
-        catch (Exception e)
-        {
-            Debug.LogError("Error on trying to load data from file: " + fullPath + "\n" + e);
-        }
+
     }
-
-    return loadData;
-}
-
 }

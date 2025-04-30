@@ -1,20 +1,24 @@
+using MyGameNamespace.Stats;
+using MyGameNamespace.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
-[CreateAssetMenu(fileName = "Heal effect", menuName = "Data/Item effect/Heal effect")]
-public class HealEffect : ItemEffect
+namespace MyGameNamespace.Effects
 {
-    [Range(0f, 1f)]
-    [SerializeField] private float healPercent;
 
-    public override void ExecuteEffect(Transform _enemyPosition)
+    [CreateAssetMenu(fileName = "Heal effect", menuName = "Data/Item effect/Heal effect")]
+    public class HealEffect : ItemEffect
     {
-        PlayerStats playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
+        [Range(0f, 1f)]
+        [SerializeField] private float healPercent;
 
-        int healAmount = Mathf.RoundToInt(playerStats.GetMaxHealthValue() * healPercent);
+        public override void ExecuteEffect(Transform _enemyPosition)
+        {
+            PlayerStats playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
 
-        playerStats.IncreaseHealthBy(healAmount);
+            int healAmount = Mathf.RoundToInt(playerStats.GetMaxHealthValue() * healPercent);
+
+            playerStats.IncreaseHealthBy(healAmount);
+        }
     }
 }

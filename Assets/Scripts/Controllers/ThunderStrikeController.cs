@@ -1,16 +1,21 @@
+using MyGameNamespace.Enemies;
+using MyGameNamespace.Stats;
+using MyGameNamespace.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class ThunderStrikeController : MonoBehaviour
+namespace MyGameNamespace.Controllers
 {
-    protected virtual void OnTriggerEnter2D(Collider2D collision)
+    public class ThunderStrikeController : MonoBehaviour
     {
-        if (collision.GetComponent<Enemy>() != null)
+        protected virtual void OnTriggerEnter2D(Collider2D collision)
         {
-            PlayerStats playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
-            EnemyStats enemyTarget = collision.GetComponent<EnemyStats>();
-            playerStats.DoMagicalDamage(enemyTarget);
+            if (collision.GetComponent<Enemy>() != null)
+            {
+                PlayerStats playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
+                EnemyStats enemyTarget = collision.GetComponent<EnemyStats>();
+                playerStats.DoMagicalDamage(enemyTarget);
+            }
         }
     }
 }

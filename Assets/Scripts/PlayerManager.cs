@@ -1,40 +1,44 @@
+using MyGameNamespace.Players;
+using MyGameNamespace.SaveLoad;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PlayerManager : MonoBehaviour, ISaveManager
+namespace MyGameNamespace.Utils
 {
-    public static PlayerManager instance;
-    public Player player;
-
-    public int currency;
-
-    private void Awake()
+    public class PlayerManager : MonoBehaviour, ISaveManager
     {
-        if (instance != null)
+        public static PlayerManager instance;
+        public Player player;
+
+        public int currency;
+
+        private void Awake()
         {
-            Destroy(instance.gameObject);
+            if (instance != null)
+            {
+                Destroy(instance.gameObject);
+            }
+            else
+            {
+                instance = this;
+            }
         }
-        else
+
+        public bool HaveEnoughMoney(int _price)
         {
-            instance = this;
+            return currency >= _price;
         }
-    }
 
-    public bool HaveEnoughMoney(int _price)
-    {
-        return currency >= _price;
-    }
+        public int GetCurrency() => currency;
 
-    public int GetCurrency() => currency;
+        public void LoadData(GameData _data)
+        {
+            this.currency = _data.currency;
+        }
 
-    public void LoadData(GameData _data)
-    {
-        this.currency = _data.currency;
-    }
-
-    public void SaveData(ref GameData _data)
-    {
-        _data.currency = this.currency;
+        public void SaveData(ref GameData _data)
+        {
+            _data.currency = this.currency;
+        }
     }
 }

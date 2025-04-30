@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using MyGameNamespace.Items;
 
 public class UIItemSlot : MonoBehaviour, IPointerDownHandler
 {
