@@ -3,54 +3,56 @@ using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using MyGameNamespace.Items;
-
-public class UIItemSlot : MonoBehaviour, IPointerDownHandler
+namespace MyGameNamespace.Utils
 {
-    [SerializeField] private Image itemImage;
-    [SerializeField] private TextMeshProUGUI itemText;
-
-
-    public InventoryItem item;
-
-    public void UpdateSlot(InventoryItem _newItem)
+    public class UIItemSlot : MonoBehaviour, IPointerDownHandler
     {
-        item = _newItem;
+        [SerializeField] private Image itemImage;
+        [SerializeField] private TextMeshProUGUI itemText;
 
-        itemImage.color = Color.white;
 
-        if (item != null)
+        public InventoryItem item;
+
+        public void UpdateSlot(InventoryItem _newItem)
         {
-            itemImage.sprite = item.data.icon;
+            item = _newItem;
 
-            if (item.stackSize > 1)
+            itemImage.color = Color.white;
+
+            if (item != null)
             {
-                itemText.text = item.stackSize.ToString();
-            }
-            else
-            {
-                itemText.text = "";
+                itemImage.sprite = item.data.icon;
+
+                if (item.stackSize > 1)
+                {
+                    itemText.text = item.stackSize.ToString();
+                }
+                else
+                {
+                    itemText.text = "";
+                }
             }
         }
-    }
 
-    public void CleanUpSlot()
-    {
-        item = null;
-
-        itemImage.sprite = null;
-        itemImage.color = Color.clear;
-        itemText.text = "";
-    }
-
-    public virtual void OnPointerDown(PointerEventData eventData)
-    {
-        if (Input.GetKey(KeyCode.LeftControl))
+        public void CleanUpSlot()
         {
-            Inventory.instance.RemoveItem(item.data);
-            return;
+            item = null;
+
+            itemImage.sprite = null;
+            itemImage.color = Color.clear;
+            itemText.text = "";
         }
 
-        if (item.data.itemType == ItemType.Equipment)
-            Inventory.instance.EquipItem(item.data);
+        public virtual void OnPointerDown(PointerEventData eventData)
+        {
+            if (Input.GetKey(KeyCode.LeftControl))
+            {
+                Inventory.instance.RemoveItem(item.data);
+                return;
+            }
+
+            if (item.data.itemType == ItemType.Equipment)
+                Inventory.instance.EquipItem(item.data);
+        }
     }
 }
