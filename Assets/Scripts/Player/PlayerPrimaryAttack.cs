@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace MyGameNamespace.Players
 {
     public class PlayerPrimaryAttackState : PlayerState
@@ -9,6 +10,7 @@ namespace MyGameNamespace.Players
 
         private float lastTimeAttacked;
         private float comboWindow = 2; // Time window for combo reset
+        private float inputThreshold = 0.1f; // A small range to account for floating-point precision
 
         public PlayerPrimaryAttackState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
         {
@@ -33,7 +35,8 @@ namespace MyGameNamespace.Players
 
             float attackDir = player.facingDir; // Direction the player is facing
 
-            if (xInput != 0)
+            // Use range to check if xInput is non-zero, accounting for floating point precision
+            if (Mathf.Abs(xInput) > inputThreshold)
                 attackDir = xInput; // Set the attack direction based on player input (if any)
 
             // Apply movement for the attack based on the current combo

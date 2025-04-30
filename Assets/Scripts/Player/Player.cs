@@ -75,9 +75,6 @@ namespace MyGameNamespace.Players
             skill = SkillManager.instance;
 
             stateMachine.Initialize(idleState);
-
-
-
         }
 
 
@@ -88,7 +85,6 @@ namespace MyGameNamespace.Players
             stateMachine.currentState.Update();
 
             CheckForDashInput();
-
 
             if (Input.GetKeyDown(KeyCode.F))
                 skill.crystal.CanUseSkill();
@@ -120,21 +116,16 @@ namespace MyGameNamespace.Players
             if (IsWallDetected())
                 return;
 
-
-
-
             if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.instance.dash.CanUseSkill())
             {
-
                 dashDir = Input.GetAxisRaw("Horizontal");
 
-                if (dashDir == 0)
+                // Check if dashDir is very close to 0, rather than checking for exact equality
+                if (Mathf.Abs(dashDir) < 0.0001f) // Using a small range instead of exact equality
                     dashDir = facingDir;
-
 
                 stateMachine.ChangeState(dashState);
             }
         }
-
     }
 }
