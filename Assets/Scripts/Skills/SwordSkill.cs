@@ -12,7 +12,7 @@ namespace MyGameNamespace.Skills
         Spin
     }
 
-    public class Sword_Skill : Skill
+    public class SwordSkill : Skill
     {
         public SwordType swordType = SwordType.Regular;
 

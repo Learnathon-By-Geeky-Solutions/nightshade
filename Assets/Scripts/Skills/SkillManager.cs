@@ -8,11 +8,11 @@ namespace MyGameNamespace.Skills
         public static SkillManager instance;
 
 
-        public Dash_Skill dash { get; private set; }
-        public Clone_Skill clone { get; private set; }
-        public Sword_Skill sword { get; private set; }
-        public Blackhole_Skill blackhole { get; private set; }
-        public Crystal_Skill crystal { get; private set; }
+        public DashSkill dash { get; private set; }
+        public CloneSkill clone { get; private set; }
+        public SwordSkill sword { get; private set; }
+        public BlackholeSkill blackhole { get; private set; }
+        public CrystalSkill crystal { get; private set; }
 
         private void Awake()
         {
@@ -24,11 +24,11 @@ namespace MyGameNamespace.Skills
 
         private void Start()
         {
-            dash = GetComponent<Dash_Skill>();
-            clone = GetComponent<Clone_Skill>();
-            sword = GetComponent<Sword_Skill>();
-            blackhole = GetComponent<Blackhole_Skill>();
-            crystal = GetComponent<Crystal_Skill>();
+            dash = GetComponent<DashSkill>();
+            clone = GetComponent<CloneSkill>();
+            sword = GetComponent<SwordSkill>();
+            blackhole = GetComponent<BlackholeSkill>();
+            crystal = GetComponent<CrystalSkill>();
         }
     }
 }

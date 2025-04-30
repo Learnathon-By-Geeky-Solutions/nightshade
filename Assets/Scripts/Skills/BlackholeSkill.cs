@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace MyGameNamespace.Skills
 {
-    public class Blackhole_Skill : Skill
+    public class BlackholeSkill : Skill
     {
         [SerializeField] private int amountOfAttacks;
         [SerializeField] private float cloneCooldown;

@@ -6,7 +6,7 @@ using System.Runtime.ExceptionServices;
 using UnityEngine;
 namespace MyGameNamespace.Skills
 {
-    public class Clone_Skill : Skill
+    public class CloneSkill : Skill
     {
 
 

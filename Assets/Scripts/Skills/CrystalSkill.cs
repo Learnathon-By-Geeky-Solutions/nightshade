@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace MyGameNamespace.Skills
 {
-    public class Crystal_Skill : Skill
+    public class CrystalSkill : Skill
     {
         [SerializeField] private float crystalDuration;
         [SerializeField] private GameObject crystalPrefab;
