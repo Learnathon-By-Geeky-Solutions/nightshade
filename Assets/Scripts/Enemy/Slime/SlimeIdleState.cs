@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace MyGameNamespace.Enemies
 {
     public class SlimeIdleState : SlimeGroundedState
@@ -14,12 +15,6 @@ namespace MyGameNamespace.Enemies
         {
             base.Enter();
             stateTimer = enemy.idleTime;
-        }
-
-        public override void Exit()
-        {
-            base.Exit();
-
         }
 
         public override void Update()

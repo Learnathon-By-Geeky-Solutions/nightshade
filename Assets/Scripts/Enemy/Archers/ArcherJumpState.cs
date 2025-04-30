@@ -3,9 +3,9 @@ namespace MyGameNamespace.Enemies
 {
     public class ArcherJumpState : EnemyState
     {
-        private Enemy_Archer enemy;
+        private EnemyArcher enemy;
 
-        public ArcherJumpState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Archer _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
+        public ArcherJumpState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemyArcher _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
         {
             this.enemy = _enemy;
         }

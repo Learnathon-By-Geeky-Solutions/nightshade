@@ -20,12 +20,7 @@ namespace MyGameNamespace.Players
             player.anim.SetBool("SuccessfulCounterAttack", false);
         }
 
-        public override void Exit()
-        {
-            base.Exit();
-
-
-        }
+       
 
         public override void Update()
         {
@@ -38,9 +33,9 @@ namespace MyGameNamespace.Players
             foreach (var hit in colliders)
             {
 
-                if (hit.GetComponent<Arrow_Controller>() != null)
+                if (hit.GetComponent<ArrowController>() != null)
                 {
-                    hit.GetComponent<Arrow_Controller>().FlipArrow();
+                    hit.GetComponent<ArrowController>().FlipArrow();
                     SuccessfulCounterAttack();
                 }
 

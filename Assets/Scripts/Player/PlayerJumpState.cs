@@ -16,10 +16,7 @@ namespace MyGameNamespace.Players
             rb.velocity = new Vector2(rb.velocity.x, player.jumpForce);
         }
 
-        public override void Exit()
-        {
-            base.Exit();
-        }
+       
 
         public override void Update()
         {

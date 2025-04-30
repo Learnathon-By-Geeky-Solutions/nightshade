@@ -3,6 +3,7 @@ using MyGameNamespace.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace MyGameNamespace.Enemies
 {
     public class SlimeBattleState : EnemyState
@@ -55,11 +56,6 @@ namespace MyGameNamespace.Enemies
 
                 enemy.SetVelocity(enemy.moveSpeed * moveDir, rb.velocity.y);
             }
-        }
-
-        public override void Exit()
-        {
-            base.Exit();
         }
 
         private bool CanAttack()

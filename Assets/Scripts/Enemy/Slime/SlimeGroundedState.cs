@@ -2,6 +2,7 @@ using MyGameNamespace.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace MyGameNamespace.Enemies
 {
     public class SlimeGroundedState : EnemyState
@@ -19,11 +20,6 @@ namespace MyGameNamespace.Enemies
         {
             base.Enter();
             player = PlayerManager.instance.player.transform;
-        }
-
-        public override void Exit()
-        {
-            base.Exit();
         }
 
         public override void Update()

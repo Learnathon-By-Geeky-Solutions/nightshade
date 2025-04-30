@@ -10,7 +10,6 @@ namespace MyGameNamespace.Enemies
         private EnemyShadow enemy;
         private int moveDir;
 
-
         public ShadowBattleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemyShadow _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
         {
             this.enemy = _enemy;
@@ -19,10 +18,7 @@ namespace MyGameNamespace.Enemies
         public override void Enter()
         {
             base.Enter();
-
             player = PlayerManager.instance.player.transform;
-
-
         }
 
         public override void Update()
@@ -45,11 +41,7 @@ namespace MyGameNamespace.Enemies
                     stateMachine.ChangeState(enemy.idleState);
             }
 
-
-
-
-
-
+            // Determine move direction based on player position
             if (player.position.x > enemy.transform.position.x)
                 moveDir = 1;
             else if (player.position.x < enemy.transform.position.x)
@@ -58,11 +50,7 @@ namespace MyGameNamespace.Enemies
             enemy.SetVelocity(enemy.moveSpeed * moveDir, rb.velocity.y);
         }
 
-        public override void Exit()
-        {
-            base.Exit();
-        }
-
+        // Remove Exit method as it is only calling base.Exit()
         private bool CanAttack()
         {
             if (Time.time >= enemy.lastTimeAttacked + enemy.attackCooldown)

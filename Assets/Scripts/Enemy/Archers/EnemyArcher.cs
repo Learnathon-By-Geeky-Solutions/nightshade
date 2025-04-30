@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace MyGameNamespace.Enemies
 {
-    public class Enemy_Archer : Enemy
+    public class EnemyArcher : Enemy
     {
         [Header("Archer Spesific Info")]
         [SerializeField] private GameObject arrowPrefab;
@@ -76,7 +76,7 @@ namespace MyGameNamespace.Enemies
         {
             GameObject newArrow = Instantiate(arrowPrefab, attackCheck.position, Quaternion.identity);
 
-            newArrow.GetComponent<Arrow_Controller>().SetupArrow(arrowSpeed * facingDir, stats);
+            newArrow.GetComponent<ArrowController>().SetupArrow(arrowSpeed * facingDir, stats);
         }
 
         public bool GroundBehind() => Physics2D.BoxCast(groundBehindCheck.position, groundBehindCheckSize, 0, Vector2.zero, 0, whatIsGround);

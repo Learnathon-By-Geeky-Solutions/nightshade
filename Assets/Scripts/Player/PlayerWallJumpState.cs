@@ -17,10 +17,7 @@ namespace MyGameNamespace.Players
             player.SetVelocity(5 * -player.facingDir, player.jumpForce);
         }
 
-        public override void Exit()
-        {
-            base.Exit();
-        }
+      
 
         public override void Update()
         {

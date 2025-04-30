@@ -18,10 +18,7 @@ namespace MyGameNamespace.Players
             player.SetZeroVelocity();
         }
 
-        public override void Exit()
-        {
-            base.Exit();
-        }
+      
 
         public override void Update()
         {

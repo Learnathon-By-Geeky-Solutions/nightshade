@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace MyGameNamespace.Enemies
 {
     public class SlimeAttackState : EnemyState
@@ -11,11 +12,6 @@ namespace MyGameNamespace.Enemies
             : base(_enemy, _stateMachine, _animBoolName)
         {
             this.enemy = __enemy;
-        }
-
-        public override void Enter()
-        {
-            base.Enter();
         }
 
         public override void Exit()

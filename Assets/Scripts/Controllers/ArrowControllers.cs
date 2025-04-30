@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace MyGameNamespace.Controllers
 {
-    public class Arrow_Controller : MonoBehaviour
+    public class ArrowController : MonoBehaviour
     {
         private SpriteRenderer sr;
 
@@ -43,7 +43,7 @@ namespace MyGameNamespace.Controllers
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer(targetLayerName))
             {
-                //collision.GetComponent<CharacterStats>()?.TakeDamage(damage);
+                
 
                 myStats.DoDamage(collision.GetComponent<CharacterStats>());
 

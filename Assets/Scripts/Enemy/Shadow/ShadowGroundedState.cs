@@ -2,6 +2,7 @@ using MyGameNamespace.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace MyGameNamespace.Enemies
 {
     public class ShadowGroundedState : EnemyState
@@ -17,13 +18,7 @@ namespace MyGameNamespace.Enemies
         public override void Enter()
         {
             base.Enter();
-
             player = PlayerManager.instance.player.transform;
-        }
-
-        public override void Exit()
-        {
-            base.Exit();
         }
 
         public override void Update()
